@@ -1,0 +1,6 @@
+{% extends 'list.html' %}
+{% load i18n %}
+
+{% block title_entities %}{% trans "Requirements" %}{% endblock %}
+
+{% block url_new %}{% url 'testing:requirement_create' %}{% endblock %}

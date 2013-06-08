@@ -1,0 +1,58 @@
+{% load i18n %}
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Testing</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.ui/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.formset.min.js"></script>
+		<script type="text/javascript" src="{{ STATIC_URL }}bootstrap/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" media="screen" href="{{ STATIC_URL }}bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" media="screen" href="{{ STATIC_URL }}bootstrap/css/bootstrap-responsive.css">
+		<link rel="stylesheet" media="screen" href="{{ STATIC_URL }}js/jquery.ui/themes/base/jquery-ui.min.css"  />
+		<style>
+			body {
+				padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+			}
+		</style>
+	</head>
+	<body>
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="brand" href="#">Testing</a>
+					<div class="nav-collapse collapse">
+						<ul class="nav">
+							<li>
+								<a href="{% url 'testing:requirements' %}">{% trans 'Requirements' %}</a>
+							</li>
+							<li>
+								<a href="{% url 'testing:testcases' %}">{% trans 'Test Cases' %}</a>
+							</li>
+						</ul>
+					</div><!--/.nav-collapse -->
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<h1>{% block title %}{% endblock %}</h1>
+			{% if messages %}
+			<ul class="messages">
+				{% for message in messages %}
+				<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+					{{ message }}
+				</li>
+				{% endfor %}
+			</ul>
+			{% endif %}
+			{% block content %}{% endblock %}
+		</div>
+	</body>
+</html>
