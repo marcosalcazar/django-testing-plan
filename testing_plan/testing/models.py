@@ -2,7 +2,6 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.utils.translation import ugettext as _
 from django.core.urlresolvers import reverse_lazy
-from django.forms.fields import CharField
 
 
 class Requirement(models.Model):
@@ -35,7 +34,7 @@ class TestCase(models.Model):
         models.PositiveIntegerField(_('Estimated Execution Time'))
     
     def __unicode__(self):
-        return self.id
+        return "%s - %s" % (self.id, self.title)
     
     def get_absolute_url(self):
         return reverse_lazy('testing:testcase_update', 

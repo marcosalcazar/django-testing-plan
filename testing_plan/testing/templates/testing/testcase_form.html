@@ -1,5 +1,6 @@
 {% extends 'form.html' %}
 {% load i18n %}
+{% load widget_tweaks %}
 
 {% block extra_js %}
 {{ block.super }}
@@ -17,16 +18,15 @@
 <form method="post" action="{% block action %}{% endblock %}">
 	{% csrf_token %}
 	<div class="row">
-		<div class="span6">
+		<div class="span4">
 			<h3>General Information</h3>
 			{{ form.as_p }}
-			<input type="submit" id="submit" />
 		</div>
-		<div class="span6">
+		<div class="span8">
 			<h3>{% trans "Pre-Conditions" %}</h3>
 			<div>
 				{{ preconditions_formset.management_form }}
-				<table class='table'>
+				<table class='table table-condensed'>
 					<thead>
 						{% with preconditions_formset.forms|first as pc %}
 						<tr>
@@ -38,7 +38,7 @@
 					<tbody>
 						{% for subform in preconditions_formset.forms %}
 						<tr>
-							<td>{{ subform.description }}{{ subform.description.errors }}</td>
+							<td>{% render_field subform.description class+='span6' %}{{ subform.description.errors }}</td>
 							<td>
 								{{ subform.DELETE }}{{ subform.DELETE.errors }}
 								{% for h in subform.hidden_fields %}
@@ -53,7 +53,7 @@
 			<h3>{% trans "Post-Conditions" %}</h3>
 			<div>
 				{{ postconditions_formset.management_form }}
-				<table class='table'>
+				<table class='table table-condensed'>
 					<thead>
 						{% with postconditions_formset.forms|first as pc %}
 						<tr>
@@ -65,7 +65,7 @@
 					<tbody>
 						{% for subform in postconditions_formset.forms %}
 						<tr>
-							<td>{{ subform.description }}{{ subform.description.errors }}</td>
+							<td>{% render_field subform.description class+='span6' %}{{ subform.description.errors }}</td>
 							<td>
 								{{ subform.DELETE }}{{ subform.DELETE.errors }}
 								{% for h in subform.hidden_fields %}
@@ -80,7 +80,7 @@
 			<h3>{% trans "Steps" %}</h3>
 			<div>
 				{{ steps_formset.management_form }}
-				<table class='table'>
+				<table class='table table-condensed'>
 					<thead>
 						{% with steps_formset.forms|first as pc %}
 						<tr>
@@ -94,9 +94,36 @@
 					<tbody>
 						{% for subform in steps_formset.forms %}
 						<tr>
-							<td>{{ subform.step_number }}{{ subform.step_number.errors }}</td>
-							<td>{{ subform.step_action }}{{ subform.step_action.errors }}</td>
-							<td>{{ subform.step_expected_result }}{{ subform.step_expected_result.errors }}</td>
+							<td>{% render_field subform.step_number class+='span1' %}{{ subform.step_number.errors }}</td>
+							<td>{% render_field subform.step_action class+='span3' rows=3 %}{{ subform.step_action.errors }}</td>
+							<td>{% render_field subform.step_expected_result class+='span3' rows=3 %}{{ subform.step_expected_result.errors }}</td>
+							<td>
+								{{ subform.DELETE }}{{ subform.DELETE.errors }}
+								{% for h in subform.hidden_fields %}
+								{{ h }}
+								{% endfor %}
+							</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+			<h3>{% trans "Corrective Actions" %}</h3>
+			<div>
+				{{ correctiveactions_formset.management_form }}
+				<table class='table table-condensed'>
+					<thead>
+						{% with correctiveactions_formset.forms|first as pc %}
+						<tr>
+							<td>{{ pc.description.label }}</td>
+							<td>{{ pc.DELETE.label }}</td>
+						</tr>
+						{% endwith %}
+					</thead>
+					<tbody>
+						{% for subform in correctiveactions_formset.forms %}
+						<tr>
+							<td>{% render_field subform.description class+='span6' %}{{ subform.description.errors }}</td>
 							<td>
 								{{ subform.DELETE }}{{ subform.DELETE.errors }}
 								{% for h in subform.hidden_fields %}
@@ -110,39 +137,36 @@
 			</div>
 			<h3>{% trans "Revisions" %}</h3>
 			<div>
-				{% for revision in revisions %}
-				{{ postcondition }}
-				{% endfor %}
-				{{ revision_form }}
-			</div>
-			<h3>{% trans "Corrective Actions" %}</h3>
-			<div>
-				{{ correctiveactions_formset.management_form }}
-				<table class='table'>
+				<table class="table table-condensed">
 					<thead>
-						{% with correctiveactions_formset.forms|first as pc %}
 						<tr>
-							<td>{{ pc.description.label }}</td>
-							<td>{{ pc.DELETE.label }}</td>
+							<th>{% trans 'User' %}</th>
+							<th>{% trans 'Date' %}</th>
+							<th>{% trans 'Description' %}</th>
 						</tr>
-						{% endwith %}
 					</thead>
 					<tbody>
-						{% for subform in correctiveactions_formset.forms %}
+						{% for revision in form.instance.revisions.all %}
 						<tr>
-							<td>{{ subform.description }}{{ subform.description.errors }}</td>
-							<td>
-								{{ subform.DELETE }}{{ subform.DELETE.errors }}
-								{% for h in subform.hidden_fields %}
-								{{ h }}
-								{% endfor %}
-							</td>
+							<td>{{ revision.user }}</td>
+							<td>{{ revision.date }}</td>
+							<td>{{ revision.description }}</td>
 						</tr>
 						{% endfor %}
 					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan=3>&nbsp;</td>
+						</tr>
+					</tfoot>
 				</table>
+				{{ revision_form.description.label }} {% render_field revision_form.description class+='span5' %}{{ revision_form.description.errors }}
+				{% for h in revision_form.hidden_fields %}
+				{{ h }}
+				{% endfor %}
 			</div>
 		</div>
 	</div>
+	<input type="submit" id="submit" />
 </form>
 {% endblock %}
