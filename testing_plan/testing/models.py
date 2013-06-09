@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.utils.translation import ugettext as _
 from django.core.urlresolvers import reverse_lazy
+from django.forms.fields import CharField
 
 
 class Requirement(models.Model):
@@ -44,13 +45,15 @@ class TestCase(models.Model):
 class TestCasePreCondition(models.Model):
 
     test_case = models.ForeignKey(TestCase, related_name='preconditions')
-    description = models.TextField(verbose_name=_('Description'))
+    description = models.CharField(verbose_name=_('Description'), 
+                                   max_length=255)
 
 
 class TestCasePostCondition(models.Model):
 
     test_case = models.ForeignKey(TestCase, related_name='postconditions')
-    description = models.TextField(verbose_name=_('Description'))
+    description = models.CharField(verbose_name=_('Description'), 
+                                   max_length=255)
 
 
 class TestCaseRevision(models.Model):
@@ -72,4 +75,5 @@ class TestCaseStep(models.Model):
 class TestCaseCorrectiveAction(models.Model):
 
     test_case = models.ForeignKey(TestCase, related_name='corrective_actions')
-    description = models.TextField(_('Description'))
+    description = models.CharField(verbose_name=_('Description'), 
+                                   max_length=255)

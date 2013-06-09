@@ -4,6 +4,9 @@ from django.views.generic.edit import CreateView, UpdateView
 from django.contrib import messages
 from django.utils.translation import ugettext as _
 from django.core.urlresolvers import reverse_lazy
+from testing.forms import TestCasePreConditionFormSet,\
+    TestCasePostConditionFormSet, TestCaseStepFormSet, TestCaseRevisionForm,\
+    TestCaseCorrectiveActionFormSet
 
 
 class RequirementListView(ListView):
@@ -39,6 +42,25 @@ class TestCaseCreateView(CreateView):
     def form_valid(self, form):
         messages.success(self.request, _(u'Test Case created'))
         return super(TestCaseCreateView, self).form_valid(form)
+    
+    def get_context_data(self, **kwargs):
+        context = CreateView.get_context_data(self, **kwargs)
+        context['preconditions_formset'] = TestCasePreConditionFormSet(
+            self.request.POST or None
+        )
+        context['postconditions_formset'] = TestCasePostConditionFormSet(
+            self.request.POST or None
+        )
+        context['steps_formset'] = TestCaseStepFormSet(
+            self.request.POST or None
+        )
+        context['revision_form'] = TestCaseRevisionForm(
+            self.request.POST or None
+        )
+        context['correctiveactions_formset'] = TestCaseCorrectiveActionFormSet(
+            self.request.POST or None
+        )
+        return context
 
 
 class TestCaseUpdateView(UpdateView):

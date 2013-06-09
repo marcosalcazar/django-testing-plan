@@ -1,4 +1,148 @@
 {% extends 'form.html' %}
 {% load i18n %}
 
+{% block extra_js %}
+{{ block.super }}
+<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.flexibleArea.js"></script>
+<script>
+	$(document).ready(function(){
+		$("textarea").flexible();
+	})
+</script>
+{% endblock %}
+
 {% block title_entity %}{% trans 'Test Case' %}{% endblock %}
+
+{% block content %}
+<form method="post" action="{% block action %}{% endblock %}">
+	{% csrf_token %}
+	<div class="row">
+		<div class="span6">
+			<h3>General Information</h3>
+			{{ form.as_p }}
+			<input type="submit" id="submit" />
+		</div>
+		<div class="span6">
+			<h3>{% trans "Pre-Conditions" %}</h3>
+			<div>
+				{{ preconditions_formset.management_form }}
+				<table class='table'>
+					<thead>
+						{% with preconditions_formset.forms|first as pc %}
+						<tr>
+							<td>{{ pc.description.label }}</td>
+							<td>{{ pc.DELETE.label }}</td>
+						</tr>
+						{% endwith %}
+					</thead>
+					<tbody>
+						{% for subform in preconditions_formset.forms %}
+						<tr>
+							<td>{{ subform.description }}{{ subform.description.errors }}</td>
+							<td>
+								{{ subform.DELETE }}{{ subform.DELETE.errors }}
+								{% for h in subform.hidden_fields %}
+								{{ h }}
+								{% endfor %}
+							</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+			<h3>{% trans "Post-Conditions" %}</h3>
+			<div>
+				{{ postconditions_formset.management_form }}
+				<table class='table'>
+					<thead>
+						{% with postconditions_formset.forms|first as pc %}
+						<tr>
+							<td>{{ pc.description.label }}</td>
+							<td>{{ pc.DELETE.label }}</td>
+						</tr>
+						{% endwith %}
+					</thead>
+					<tbody>
+						{% for subform in postconditions_formset.forms %}
+						<tr>
+							<td>{{ subform.description }}{{ subform.description.errors }}</td>
+							<td>
+								{{ subform.DELETE }}{{ subform.DELETE.errors }}
+								{% for h in subform.hidden_fields %}
+								{{ h }}
+								{% endfor %}
+							</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+			<h3>{% trans "Steps" %}</h3>
+			<div>
+				{{ steps_formset.management_form }}
+				<table class='table'>
+					<thead>
+						{% with steps_formset.forms|first as pc %}
+						<tr>
+							<td>{{ pc.step_number.label }}</td>
+							<td>{{ pc.step_action.label }}</td>
+							<td>{{ pc.step_expected_result.label }}</td>
+							<td>{{ pc.DELETE.label }}</td>
+						</tr>
+						{% endwith %}
+					</thead>
+					<tbody>
+						{% for subform in steps_formset.forms %}
+						<tr>
+							<td>{{ subform.step_number }}{{ subform.step_number.errors }}</td>
+							<td>{{ subform.step_action }}{{ subform.step_action.errors }}</td>
+							<td>{{ subform.step_expected_result }}{{ subform.step_expected_result.errors }}</td>
+							<td>
+								{{ subform.DELETE }}{{ subform.DELETE.errors }}
+								{% for h in subform.hidden_fields %}
+								{{ h }}
+								{% endfor %}
+							</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+			<h3>{% trans "Revisions" %}</h3>
+			<div>
+				{% for revision in revisions %}
+				{{ postcondition }}
+				{% endfor %}
+				{{ revision_form }}
+			</div>
+			<h3>{% trans "Corrective Actions" %}</h3>
+			<div>
+				{{ correctiveactions_formset.management_form }}
+				<table class='table'>
+					<thead>
+						{% with correctiveactions_formset.forms|first as pc %}
+						<tr>
+							<td>{{ pc.description.label }}</td>
+							<td>{{ pc.DELETE.label }}</td>
+						</tr>
+						{% endwith %}
+					</thead>
+					<tbody>
+						{% for subform in correctiveactions_formset.forms %}
+						<tr>
+							<td>{{ subform.description }}{{ subform.description.errors }}</td>
+							<td>
+								{{ subform.DELETE }}{{ subform.DELETE.errors }}
+								{% for h in subform.hidden_fields %}
+								{{ h }}
+								{% endfor %}
+							</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</form>
+{% endblock %}
