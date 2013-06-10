@@ -8,6 +8,16 @@ from testing.forms import TestCasePreConditionFormSet,\
     TestCasePostConditionFormSet, TestCaseStepFormSet, TestCaseRevisionForm,\
     TestCaseCorrectiveActionFormSet
 from django.http.response import HttpResponse, HttpResponseRedirect
+from django.views.generic.base import View
+from relatorio.templates.opendocument import Template
+from django.conf import settings
+import os
+import StringIO
+from ho import pisa
+import cgi
+from django.shortcuts import render_to_response
+from django.template.loader import render_to_string
+from django.template.context import RequestContext
 
 
 class RequirementListView(ListView):
@@ -179,3 +189,39 @@ class TestCaseUpdateView(UpdateView):
             return HttpResponseRedirect(self.get_success_url())
         else:
             return self.form_invalid(form)
+
+
+def _generate_pdf(html):
+    #Function for generating the PDF file and return it using HttpResponse
+    result = StringIO.StringIO()
+    pdf = pisa.pisaDocument(StringIO.StringIO(html.encode("UTF-8")), result)
+    if not pdf.err:
+        return HttpResponse(result.getvalue(), mimetype='application/pdf')
+    return HttpResponse(_('Error while creating the PDF file: %s' % cgi.escape(html)))
+ 
+ 
+class TestCasesReportView(View):
+    template_name = 'testing/test_cases_report.html'
+     
+    def get(self, request, *args, **kwargs):
+        data = dict(
+            test_cases = TestCase.objects.all(),
+            pagesize = 'A4',
+        )
+        html = render_to_string(
+            self.template_name, data, context_instance=RequestContext(request))
+        return _generate_pdf(html)
+
+# class TestCasesReportView(View):
+#     
+#     def get(self, request, *args, **kwargs):
+#         test_cases = TestCase.objects.all().values()
+#         print test_cases
+#         templateFilePath = os.path.join(settings.PROJECT_PATH, 'testing', 'reports', 'testcases_skeleton.odt')
+#         report = Template(source=open(templateFilePath,'r'),
+#                           filepath=templateFilePath)
+#         response = HttpResponse(
+#             report.generate(test_cases=test_cases).render().getvalue(), 
+#             mimetype='application/pdf')
+#         response['Content-Disposition'] = 'attachment; filename="TestCasesReport.pdf"'
+#         return response

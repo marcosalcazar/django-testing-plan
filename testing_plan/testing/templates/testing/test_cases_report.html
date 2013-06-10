@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block document_title %}{{ block.super }} - {% trans 'Test Cases Report' %}{% endblock %}
+
+{% block nav %}{% endblock %}
+
+{% block content %}
+<style type="text/css">
+table.gridtable {
+	font-size:11px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #666666;
+	border-collapse: collapse;
+}
+table.gridtable th {
+	border-width: 1px;
+	padding: 3px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #dedede;
+}
+table.gridtable td {
+	border-width: 1px;
+	padding: 3px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #ffffff;
+}
+</style>
+{% for tc in test_cases %}
+<table class='gridtable'>
+	<tbody>
+		<tr>
+			<td colspan="2"><h2>{{ tc }}</h2></td>
+		</tr>
+		<tr>
+			<td width="20%">{% trans 'Author' %}</td>
+			<td width="80%">{{ tc.author }}</td>
+		</tr>
+		<tr>
+			<td>{% trans 'Objective' %}</td>
+			<td>{{ tc.objective }}</td>
+		</tr>
+		<tr>
+			<td>{% trans 'Requirement' %}</td>
+			<td>{{ tc.requeriment }}</td>
+		</tr>
+		<tr>
+			<td>{% trans 'Pre-Conditions' %}</td>
+			<td>
+				<ul>
+					{% for p in tc.preconditions.all %}
+					<li>{{ p }}</li>
+					{% endfor %}
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>{% trans 'Actions' %}</td>
+			<td>
+				<table>
+					<thead>
+						<tr>
+							<th>{% trans 'Step Number' %}</th>
+							<th>{% trans 'Action' %}</th>
+							<th>{% trans 'Expected Result' %}</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for s in tc.steps.all %}
+						<tr>
+							<td>{{ s.step_number }}</td>
+							<td>{{ s.step_action }}</td>
+							<td>{{ s.step_expected_result }}</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>{% trans 'Execution type' %}</td>
+			<td>{{ tc.get_execution_type_display }}</td>
+		</tr>
+		<tr>
+			<td>{% trans 'Post-Conditions' %}</td>
+			<td>
+				<ul>
+					{% for p in tc.postconditions.all %}
+					<li>{{ p }}</li>
+					{% endfor %}
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>{% trans 'Revisions' %}</td>
+			<td>
+				<table>
+					<thead>
+						<tr>
+							<th>{% trans 'User' %}</th>
+							<th>{% trans 'Date' %}</th>
+							<th>{% trans 'Description' %}</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for revision in tc.revisions.all %}
+						<tr>
+							<td>{{ revision.user }}</td>
+							<td>{{ revision.date }}</td>
+							<td>{{ revision.description }}</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>{% trans 'Estimated execution type' %}</td>
+			<td>{{ tc.estimated_execution_time }}</td>
+		</tr>
+		<tr>
+			<td>{% trans 'Status' %}</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>{% trans 'Corrective actions' %}</td>
+			<td>
+				<ul>
+					{% for c in tc.corrective_actions.all %}
+					<li>{{ c }}</li>
+					{% endfor %}
+				</ul>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<pdf:nextpage />
+{% endfor %}
+{% endblock %}

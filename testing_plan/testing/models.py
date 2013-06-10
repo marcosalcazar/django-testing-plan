@@ -46,6 +46,9 @@ class TestCasePreCondition(models.Model):
     test_case = models.ForeignKey(TestCase, related_name='preconditions')
     description = models.CharField(verbose_name=_('Description'), 
                                    max_length=255)
+    
+    def __unicode__(self):
+        return self.description
 
 
 class TestCasePostCondition(models.Model):
@@ -76,3 +79,6 @@ class TestCaseCorrectiveAction(models.Model):
     test_case = models.ForeignKey(TestCase, related_name='corrective_actions')
     description = models.CharField(verbose_name=_('Description'), 
                                    max_length=255)
+    
+    def __unicode__(self):
+        return self.description

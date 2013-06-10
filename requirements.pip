@@ -1,2 +1,5 @@
 Django>1.5,<1.6
 django-widget-tweaks
+pisa
+reportlab #for pisa
+html5lib #for pisa

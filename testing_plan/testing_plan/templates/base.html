@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Testing</title>
+		<title>{% block document_title %}Testing{% endblock %}</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<script type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.9.1.min.js"></script>
@@ -12,13 +12,14 @@
 		<link rel="stylesheet" media="screen" href="{{ STATIC_URL }}bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" media="screen" href="{{ STATIC_URL }}bootstrap/css/bootstrap-responsive.css">
 		<link rel="stylesheet" media="screen" href="{{ STATIC_URL }}js/jquery.ui/themes/base/jquery-ui.min.css"  />
-		<style>
+		<style media="screen">
 			body {
 				padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
 			}
 		</style>
 	</head>
 	<body>
+		{% block nav %}
 		<div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="navbar-inner">
 				<div class="container">
@@ -36,11 +37,15 @@
 							<li>
 								<a href="{% url 'testing:testcases' %}">{% trans 'Test Cases' %}</a>
 							</li>
+							<li>
+								<a href="{% url 'testing:testcasesreports' %}">{% trans 'Test Cases Reports' %}</a>
+							</li>
 						</ul>
 					</div><!--/.nav-collapse -->
 				</div>
 			</div>
 		</div>
+		{% endblock %}
 		<div class="container">
 			<h1>{% block title %}{% endblock %}</h1>
 			{% if messages %}
