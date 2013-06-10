@@ -8,7 +8,32 @@
 <script>
 	$(document).ready(function(){
 		$("textarea").flexible();
-	})
+		
+		$('#preconditions tbody tr').formset({
+			prefix: '{{ preconditions_formset.prefix }}',
+			addText: '{% trans "add another" %}',
+			deleteText: '{% trans "remove" %}'
+		});
+		
+		$('#postconditions tbody tr').formset({
+			prefix: '{{ postconditions_formset.prefix }}',
+			addText: '{% trans "add another" %}',
+			deleteText: '{% trans "remove" %}'
+		});
+		
+		$('#steps tbody tr').formset({
+			prefix: '{{ steps_formset.prefix }}',
+			addText: '{% trans "add another" %}',
+			deleteText: '{% trans "remove" %}'
+		});
+		
+		$('#correctiveactions tbody tr').formset({
+			prefix: '{{ correctiveactions_formset.prefix }}',
+			addText: '{% trans "add another" %}',
+			deleteText: '{% trans "remove" %}'
+		});
+
+	});
 </script>
 {% endblock %}
 
@@ -27,7 +52,7 @@
 			<div>
 				{{ preconditions_formset.management_form }}
 				{{ preconditions_formset.non_form_errors }}
-				<table class='table table-condensed'>
+				<table id="preconditions" class='table table-condensed'>
 					<thead>
 						{% with preconditions_formset.forms|first as pc %}
 						<tr>
@@ -54,7 +79,7 @@
 			<h3>{% trans "Post-Conditions" %}</h3>
 			<div>
 				{{ postconditions_formset.management_form }}
-				<table class='table table-condensed'>
+				<table id="postconditions" class='table table-condensed'>
 					<thead>
 						{% with postconditions_formset.forms|first as pc %}
 						<tr>
@@ -81,7 +106,7 @@
 			<h3>{% trans "Steps" %}</h3>
 			<div>
 				{{ steps_formset.management_form }}
-				<table class='table table-condensed'>
+				<table id="steps" class='table table-condensed'>
 					<thead>
 						{% with steps_formset.forms|first as pc %}
 						<tr>
@@ -112,7 +137,7 @@
 			<h3>{% trans "Corrective Actions" %}</h3>
 			<div>
 				{{ correctiveactions_formset.management_form }}
-				<table class='table table-condensed'>
+				<table id="correctiveactions" class='table table-condensed'>
 					<thead>
 						{% with correctiveactions_formset.forms|first as pc %}
 						<tr>

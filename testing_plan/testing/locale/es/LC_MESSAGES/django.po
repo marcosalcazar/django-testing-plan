@@ -8,14 +8,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-10 09:43-0300\n"
+"POT-Creation-Date: 2013-06-10 14:34-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <marcos.alcazar@gmail.com>\n"
 "Language-Team: ES <marcos.alcazar@gmail.com>\n"
-"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: .\models.py:9
@@ -70,7 +70,8 @@ msgstr "Objetivo"
 msgid "Type"
 msgstr "Tipo"
 
-#: .\models.py:41 .\templates\testing\test_cases_report.html.py:47
+#: .\models.py:41 .\templates\testing\requirement_form.html.py:4
+#: .\templates\testing\test_cases_report.html.py:47
 msgid "Requirement"
 msgstr "Requerimiento"
 
@@ -84,17 +85,17 @@ msgstr "Tiempo Estimado de Ejecucion"
 
 #: .\models.py:59 .\models.py:69 .\models.py:77 .\models.py:92
 #: .\templates\testing\test_cases_report.html.py:105
-#: .\templates\testing\testcase_form.html.py:146
+#: .\templates\testing\testcase_form.html.py:171
 msgid "Description"
 msgstr "Descripcion"
 
 #: .\models.py:76 .\templates\testing\test_cases_report.html.py:103
-#: .\templates\testing\testcase_form.html.py:144
+#: .\templates\testing\testcase_form.html.py:169
 msgid "User"
 msgstr "Usuario"
 
 #: .\models.py:78 .\templates\testing\test_cases_report.html.py:104
-#: .\templates\testing\testcase_form.html.py:145
+#: .\templates\testing\testcase_form.html.py:170
 msgid "Date"
 msgstr "Fecha"
 
@@ -140,7 +141,7 @@ msgid "Test Cases Report"
 msgstr "Reporte de Casos de Prueba"
 
 #: .\templates\testing\test_cases_report.html.py:51
-#: .\templates\testing\testcase_form.html.py:26
+#: .\templates\testing\testcase_form.html.py:51
 msgid "Pre-Conditions"
 msgstr "Pre-Condiciones"
 
@@ -161,12 +162,12 @@ msgid "Execution type"
 msgstr "Tipo de Ejecucion"
 
 #: .\templates\testing\test_cases_report.html.py:88
-#: .\templates\testing\testcase_form.html.py:54
+#: .\templates\testing\testcase_form.html.py:79
 msgid "Post-Conditions"
 msgstr "Post-Condiciones"
 
 #: .\templates\testing\test_cases_report.html.py:98
-#: .\templates\testing\testcase_form.html.py:139
+#: .\templates\testing\testcase_form.html.py:164
 msgid "Revisions"
 msgstr "Revisiones"
 
@@ -182,15 +183,29 @@ msgstr "Estado"
 msgid "Corrective actions"
 msgstr "Acciones correctivas"
 
+#: .\templates\testing\testcase_form.html.py:14
+#: .\templates\testing\testcase_form.html.py:20
+#: .\templates\testing\testcase_form.html.py:26
+#: .\templates\testing\testcase_form.html.py:32
+msgid "add another"
+msgstr "agregar otro"
+
 #: .\templates\testing\testcase_form.html.py:15
+#: .\templates\testing\testcase_form.html.py:21
+#: .\templates\testing\testcase_form.html.py:27
+#: .\templates\testing\testcase_form.html.py:33
+msgid "remove"
+msgstr "quitar"
+
+#: .\templates\testing\testcase_form.html.py:40
 msgid "Test Case"
 msgstr "Caso de Prueba"
 
-#: .\templates\testing\testcase_form.html.py:81
+#: .\templates\testing\testcase_form.html.py:106
 msgid "Steps"
 msgstr "Pasos"
 
-#: .\templates\testing\testcase_form.html.py:112
+#: .\templates\testing\testcase_form.html.py:137
 msgid "Corrective Actions"
 msgstr "Acciones Correctivas"
 
