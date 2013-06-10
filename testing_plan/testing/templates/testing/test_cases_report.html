@@ -33,7 +33,7 @@ table.gridtable td {
 <table class='gridtable'>
 	<tbody>
 		<tr>
-			<td colspan="2"><h2>{{ tc }}</h2></td>
+			<td colspan="2"><h2>[{{ tc.get_test_case_type_display }}] {{ tc }}</h2></td>
 		</tr>
 		<tr>
 			<td width="20%">{% trans 'Author' %}</td>
@@ -63,7 +63,7 @@ table.gridtable td {
 				<table>
 					<thead>
 						<tr>
-							<th>{% trans 'Step Number' %}</th>
+							<th width="10%">{% trans 'Step Number' %}</th>
 							<th>{% trans 'Action' %}</th>
 							<th>{% trans 'Expected Result' %}</th>
 						</tr>
@@ -100,7 +100,7 @@ table.gridtable td {
 				<table>
 					<thead>
 						<tr>
-							<th>{% trans 'User' %}</th>
+							<th width="20%">{% trans 'User' %}</th>
 							<th>{% trans 'Date' %}</th>
 							<th>{% trans 'Description' %}</th>
 						</tr>

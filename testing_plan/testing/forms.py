@@ -47,3 +47,10 @@ class TestCaseRevisionForm(forms.ModelForm):
     class Meta:
         model = TestCaseRevision
         exclude = ('test_case', 'user',)
+
+
+class TestCaseForm(forms.ModelForm):
+    
+    class Meta:
+        model = TestCase
+        exclude = ('author', )

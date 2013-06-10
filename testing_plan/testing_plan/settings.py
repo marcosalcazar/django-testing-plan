@@ -112,8 +112,13 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     
     'widget_tweaks',
+    'htauth',
     
     'testing',
+)
+
+AUTHENTICATION_BACKENDS = (
+    'htauth.backend.HtauthBackend',
 )
 
 # A sample logging configuration. The only tangible logging

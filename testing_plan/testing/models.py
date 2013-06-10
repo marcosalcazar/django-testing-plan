@@ -23,9 +23,21 @@ class TestCase(models.Model):
         ('A', _('Automated'))
     )
     
+    TEST_CASE_TYPES = (
+        ('U', _('Unit')),
+        ('I', _('Integration')),
+        ('S', _('Security')),
+        ('G', _('System')),
+        ('A', _('Acceptance')),
+        ('C', _('Load'))
+    )
+    
     title = models.CharField(_('Title'), max_length=255)
     author = models.ForeignKey(User, verbose_name=_('Author'))
     objective = models.TextField(_('Objective'))
+    test_case_type = models.CharField(_('Type'),
+                                      max_length=1, 
+                                      choices=TEST_CASE_TYPES)
     requeriment = models.ForeignKey(Requirement, verbose_name=_('Requirement'))
     execution_type = models.CharField(verbose_name=_('Execution Type'),
                                       max_length=2,

@@ -1,23 +1,23 @@
-from django.views.generic.list import ListView
-from testing.models import Requirement, TestCase
-from django.views.generic.edit import CreateView, UpdateView
 from django.contrib import messages
-from django.utils.translation import ugettext as _
 from django.core.urlresolvers import reverse_lazy
-from testing.forms import TestCasePreConditionFormSet,\
-    TestCasePostConditionFormSet, TestCaseStepFormSet, TestCaseRevisionForm,\
-    TestCaseCorrectiveActionFormSet
 from django.http.response import HttpResponse, HttpResponseRedirect
-from django.views.generic.base import View
-from relatorio.templates.opendocument import Template
-from django.conf import settings
-import os
-import StringIO
-from ho import pisa
-import cgi
-from django.shortcuts import render_to_response
-from django.template.loader import render_to_string
 from django.template.context import RequestContext
+from django.template.loader import render_to_string
+from django.utils.translation import ugettext as _
+from django.views.generic.base import View
+from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.list import ListView
+from ho import pisa
+from testing.forms import TestCasePreConditionFormSet, \
+    TestCasePostConditionFormSet, TestCaseStepFormSet, TestCaseRevisionForm, \
+    TestCaseCorrectiveActionFormSet, TestCaseForm
+from testing.models import Requirement, TestCase
+import StringIO
+import cgi
+#from relatorio.templates.opendocument import Template
+#from django.conf import settings
+#import os
+#from django.shortcuts import render_to_response
 
 
 class RequirementListView(ListView):
@@ -48,6 +48,7 @@ class TestCaseListView(ListView):
 
 class TestCaseCreateView(CreateView):
     model = TestCase
+    form_class = TestCaseForm
     success_url = reverse_lazy("testing:testcases")
     
     def get_context_data(self, **kwargs):
@@ -91,7 +92,9 @@ class TestCaseCreateView(CreateView):
             revision_form.is_valid() and \
             correctiveactions_formset.is_valid():
 
-            self.object = form.save()
+            self.object = form.save(commit=False)
+            self.object.author = self.request.user
+            self.object.save()
             preconditions = preconditions_formset.save(commit=False)
             for p in preconditions:
                 p.test_case = self.object
@@ -121,6 +124,7 @@ class TestCaseCreateView(CreateView):
 
 class TestCaseUpdateView(UpdateView):
     model = TestCase
+    form_class = TestCaseForm
     success_url = reverse_lazy("testing:testcases")
     
     def get_context_data(self, **kwargs):
