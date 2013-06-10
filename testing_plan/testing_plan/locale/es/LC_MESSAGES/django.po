@@ -8,14 +8,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-10 09:44-0300\n"
+"POT-Creation-Date: 2013-06-10 17:11-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: .\settings.py:31
@@ -26,17 +26,21 @@ msgstr ""
 msgid "Español"
 msgstr ""
 
-#: .\templates\base.html.py:35
+#: .\templates\base.html.py:37
 msgid "Requirements"
 msgstr "Requerimientos"
 
-#: .\templates\base.html.py:38
+#: .\templates\base.html.py:40
 msgid "Test Cases"
 msgstr "Casos de Prueba"
 
-#: .\templates\base.html.py:41
+#: .\templates\base.html.py:43
 msgid "Test Cases Report"
 msgstr "Reporte de Casos de Prueba"
+
+#: .\templates\base.html.py:61
+msgid "Log Out"
+msgstr ""
 
 #: .\templates\form.html.py:6
 msgid "Update"
@@ -46,9 +50,14 @@ msgstr "Actualizar"
 msgid "New"
 msgstr "Crear"
 
+#: .\templates\list.html.py:13
+msgid "Modify"
+msgstr "Modificar"
+
 #: .\templates\login.html.py:7
 msgid "Your username and password didn't match. Please try again."
-msgstr "Su nombre de usuario y password no coinciden. Por favor, intente nuevamente."
+msgstr ""
+"Su nombre de usuario y password no coinciden. Por favor, intente nuevamente."
 
 #: .\templates\logout.html.py:5
 msgid "You are logged out!"
