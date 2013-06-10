@@ -121,6 +121,7 @@ INSTALLED_APPS = (
     
     'widget_tweaks',
     'htauth',
+    'south',
     
     'testing',
 )

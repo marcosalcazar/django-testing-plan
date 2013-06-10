@@ -4,3 +4,4 @@ pisa
 reportlab #for pisa
 html5lib #for pisa
 django-htauth
+South
