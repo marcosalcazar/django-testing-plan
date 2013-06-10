@@ -68,6 +68,9 @@ class TestCasePostCondition(models.Model):
     test_case = models.ForeignKey(TestCase, related_name='postconditions')
     description = models.CharField(verbose_name=_('Description'), 
                                    max_length=255)
+    
+    def __unicode__(self):
+        return self.description
 
 
 class TestCaseRevision(models.Model):
