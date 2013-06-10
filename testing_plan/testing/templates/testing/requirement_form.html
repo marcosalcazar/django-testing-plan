@@ -1,21 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'form.html' %}
+{% load i18n %}
 
-{% block title %}
-	{% if form.instance.pk %}
-	Update
-	{% else %}
-	New
-	{% endif %}
-	{% block title_entity %}{% endblock %}
-{% endblock %}
-
-{% block content %}
-	{{ block.super }}
-	<form method="post" action="{% block action %}{% endblock %}">
-		{% csrf_token %}
-		{{ form.as_p }}
-		{% block extra_form %}{% endblock %}
-		<input type="submit" id="submit" />
-	</form>
-	{% block extra_out_form %}{% endblock %}
-{% endblock %}
+{% block title_entity %}{% trans 'Requirement' %}{% endblock %}
