@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-10 14:34-0300\n"
+"POT-Creation-Date: 2013-06-10 17:04-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <marcos.alcazar@gmail.com>\n"
 "Language-Team: ES <marcos.alcazar@gmail.com>\n"
@@ -18,96 +18,148 @@ msgstr ""
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\models.py:9
+#: .\models.py:10
+msgid "Functional - Use case"
+msgstr "Funcional - Caso de Uso"
+
+#: .\models.py:11
+msgid "Functional - Security"
+msgstr "Funcional - Seguridad"
+
+#: .\models.py:12
+msgid "Usability"
+msgstr "Usabilidad"
+
+#: .\models.py:13
+msgid "Reliability"
+msgstr "Fiabilidad"
+
+#: .\models.py:14
+msgid "Performance"
+msgstr "Rendimiento"
+
+#: .\models.py:15
+msgid "Supportability"
+msgstr "Soporte"
+
+#: .\models.py:16
+msgid "(+) Implementation"
+msgstr "(+) Implementacion"
+
+#: .\models.py:17
+msgid "(+) Interfaces (Not GUI)"
+msgstr "(+) Interfaces (No GUI)"
+
+#: .\models.py:18
+msgid "(+) Operations"
+msgstr "(+) Operaciones"
+
+#: .\models.py:19
+msgid "(+) Packaging"
+msgstr "(+) Empaquetamiento"
+
+#: .\models.py:20
+msgid "(+) Legals"
+msgstr "(+) Legales"
+
+#: .\models.py:23
+msgid "Requirement Type"
+msgstr "Tipo de Requerimiento"
+
+#: .\models.py:26
 msgid "Name"
 msgstr "Nombre"
 
-#: .\models.py:22
+#: .\models.py:27
+msgid "Created"
+msgstr ""
+
+#: .\models.py:40
 msgid "Manual"
 msgstr ""
 
-#: .\models.py:23
+#: .\models.py:41
 msgid "Automated"
 msgstr "Automatizado"
 
-#: .\models.py:27
+#: .\models.py:45
 msgid "Unit"
 msgstr "Unidad"
 
-#: .\models.py:28
+#: .\models.py:46
 msgid "Integration"
 msgstr "Integracion"
 
-#: .\models.py:29
+#: .\models.py:47
 msgid "Security"
 msgstr "Seguridad"
 
-#: .\models.py:30
+#: .\models.py:48
 msgid "System"
 msgstr "Sistema"
 
-#: .\models.py:31
+#: .\models.py:49
 msgid "Acceptance"
 msgstr "Aceptacion"
 
-#: .\models.py:32
+#: .\models.py:50
 msgid "Load"
 msgstr "Carga"
 
-#: .\models.py:35
+#: .\models.py:53
 msgid "Title"
 msgstr "Titulo"
 
-#: .\models.py:36 .\templates\testing\test_cases_report.html.py:39
+#: .\models.py:54 .\templates\testing\test_cases_report.html.py:39
 msgid "Author"
 msgstr "Autor"
 
-#: .\models.py:37 .\templates\testing\test_cases_report.html.py:43
+#: .\models.py:55 .\templates\testing\test_cases_report.html.py:43
 msgid "Objective"
 msgstr "Objetivo"
 
-#: .\models.py:38
+#: .\models.py:56
 msgid "Type"
 msgstr "Tipo"
 
-#: .\models.py:41 .\templates\testing\requirement_form.html.py:4
+#: .\models.py:59 .\templates\testing\requirement_form.html.py:4
 #: .\templates\testing\test_cases_report.html.py:47
 msgid "Requirement"
 msgstr "Requerimiento"
 
-#: .\models.py:42
+#: .\models.py:60
 msgid "Execution Type"
 msgstr "Tipo de Ejecucion"
 
-#: .\models.py:46
+#: .\models.py:64
 msgid "Estimated Execution Time"
 msgstr "Tiempo Estimado de Ejecucion"
 
-#: .\models.py:59 .\models.py:69 .\models.py:77 .\models.py:92
+#: .\models.py:77 .\models.py:87 .\models.py:98 .\models.py:113
 #: .\templates\testing\test_cases_report.html.py:105
 #: .\templates\testing\testcase_form.html.py:171
 msgid "Description"
 msgstr "Descripcion"
 
-#: .\models.py:76 .\templates\testing\test_cases_report.html.py:103
+#: .\models.py:97 .\templates\testing\test_cases_report.html.py:103
 #: .\templates\testing\testcase_form.html.py:169
 msgid "User"
 msgstr "Usuario"
 
-#: .\models.py:78 .\templates\testing\test_cases_report.html.py:104
+#: .\models.py:99 .\templates\testing\test_cases_report.html.py:104
 #: .\templates\testing\testcase_form.html.py:170
 msgid "Date"
 msgstr "Fecha"
 
-#: .\models.py:84
+#: .\models.py:105
 msgid "Step number"
 msgstr "Numero de Paso"
 
-#: .\models.py:85
+#: .\models.py:106
 msgid "Step action"
 msgstr "Accion"
 
-#: .\models.py:86 .\templates\testing\test_cases_report.html.py:68
+#: .\models.py:107 .\templates\testing\test_cases_report.html.py:68
 msgid "Expected Result"
 msgstr "Resultado Esperado"
 
