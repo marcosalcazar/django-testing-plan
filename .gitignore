@@ -21,6 +21,7 @@ lib64
 *.sqlite
 *settingsdev.py
 .htpasswd
+*.settings*
 
 # Installer logs
 pip-log.txt

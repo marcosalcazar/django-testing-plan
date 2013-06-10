@@ -1,0 +1,198 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-06-10 09:43-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <marcos.alcazar@gmail.com>\n"
+"Language-Team: ES <marcos.alcazar@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\models.py:9
+msgid "Name"
+msgstr "Nombre"
+
+#: .\models.py:22
+msgid "Manual"
+msgstr ""
+
+#: .\models.py:23
+msgid "Automated"
+msgstr "Automatizado"
+
+#: .\models.py:27
+msgid "Unit"
+msgstr "Unidad"
+
+#: .\models.py:28
+msgid "Integration"
+msgstr "Integracion"
+
+#: .\models.py:29
+msgid "Security"
+msgstr "Seguridad"
+
+#: .\models.py:30
+msgid "System"
+msgstr "Sistema"
+
+#: .\models.py:31
+msgid "Acceptance"
+msgstr "Aceptacion"
+
+#: .\models.py:32
+msgid "Load"
+msgstr "Carga"
+
+#: .\models.py:35
+msgid "Title"
+msgstr "Titulo"
+
+#: .\models.py:36 .\templates\testing\test_cases_report.html.py:39
+msgid "Author"
+msgstr "Autor"
+
+#: .\models.py:37 .\templates\testing\test_cases_report.html.py:43
+msgid "Objective"
+msgstr "Objetivo"
+
+#: .\models.py:38
+msgid "Type"
+msgstr "Tipo"
+
+#: .\models.py:41 .\templates\testing\test_cases_report.html.py:47
+msgid "Requirement"
+msgstr "Requerimiento"
+
+#: .\models.py:42
+msgid "Execution Type"
+msgstr "Tipo de Ejecucion"
+
+#: .\models.py:46
+msgid "Estimated Execution Time"
+msgstr "Tiempo Estimado de Ejecucion"
+
+#: .\models.py:59 .\models.py:69 .\models.py:77 .\models.py:92
+#: .\templates\testing\test_cases_report.html.py:105
+#: .\templates\testing\testcase_form.html.py:146
+msgid "Description"
+msgstr "Descripcion"
+
+#: .\models.py:76 .\templates\testing\test_cases_report.html.py:103
+#: .\templates\testing\testcase_form.html.py:144
+msgid "User"
+msgstr "Usuario"
+
+#: .\models.py:78 .\templates\testing\test_cases_report.html.py:104
+#: .\templates\testing\testcase_form.html.py:145
+msgid "Date"
+msgstr "Fecha"
+
+#: .\models.py:84
+msgid "Step number"
+msgstr "Numero de Paso"
+
+#: .\models.py:85
+msgid "Step action"
+msgstr "Accion"
+
+#: .\models.py:86 .\templates\testing\test_cases_report.html.py:68
+msgid "Expected Result"
+msgstr "Resultado Esperado"
+
+#: .\views.py:32
+msgid "Requirement created"
+msgstr "Requerimiento creado"
+
+#: .\views.py:41
+msgid "Requirement updated"
+msgstr "Requerimiento actualizado"
+
+#: .\views.py:118
+msgid "Test Case created"
+msgstr "Caso de Prueba creado"
+
+#: .\views.py:192
+msgid "Test Case updated"
+msgstr "Caso de Prueba actualizado"
+
+#: .\views.py:204
+#, python-format
+msgid "Error while creating the PDF file: %s"
+msgstr "Error creando el archivo PDF: %s"
+
+#: .\templates\testing\requirement_list.html.py:4
+msgid "Requirements"
+msgstr "Requerimientos"
+
+#: .\templates\testing\test_cases_report.html.py:4
+msgid "Test Cases Report"
+msgstr "Reporte de Casos de Prueba"
+
+#: .\templates\testing\test_cases_report.html.py:51
+#: .\templates\testing\testcase_form.html.py:26
+msgid "Pre-Conditions"
+msgstr "Pre-Condiciones"
+
+#: .\templates\testing\test_cases_report.html.py:61
+msgid "Actions"
+msgstr "Acciones"
+
+#: .\templates\testing\test_cases_report.html.py:66
+msgid "Step Number"
+msgstr "Numero de Paso"
+
+#: .\templates\testing\test_cases_report.html.py:67
+msgid "Action"
+msgstr "Accion"
+
+#: .\templates\testing\test_cases_report.html.py:84
+msgid "Execution type"
+msgstr "Tipo de Ejecucion"
+
+#: .\templates\testing\test_cases_report.html.py:88
+#: .\templates\testing\testcase_form.html.py:54
+msgid "Post-Conditions"
+msgstr "Post-Condiciones"
+
+#: .\templates\testing\test_cases_report.html.py:98
+#: .\templates\testing\testcase_form.html.py:139
+msgid "Revisions"
+msgstr "Revisiones"
+
+#: .\templates\testing\test_cases_report.html.py:121
+msgid "Estimated execution type"
+msgstr "Tiempo estimado de ejecucion"
+
+#: .\templates\testing\test_cases_report.html.py:125
+msgid "Status"
+msgstr "Estado"
+
+#: .\templates\testing\test_cases_report.html.py:129
+msgid "Corrective actions"
+msgstr "Acciones correctivas"
+
+#: .\templates\testing\testcase_form.html.py:15
+msgid "Test Case"
+msgstr "Caso de Prueba"
+
+#: .\templates\testing\testcase_form.html.py:81
+msgid "Steps"
+msgstr "Pasos"
+
+#: .\templates\testing\testcase_form.html.py:112
+msgid "Corrective Actions"
+msgstr "Acciones Correctivas"
+
+#: .\templates\testing\testcase_list.html.py:4
+msgid "Test Cases"
+msgstr "Casos de Prueba"
