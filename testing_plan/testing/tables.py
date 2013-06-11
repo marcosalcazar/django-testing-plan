@@ -10,7 +10,7 @@ class RequirementTable(tables.Table):
     
     class Meta:
         model = Requirement
-        attrs = {"class": "table"}
+        attrs = {"class": "table table-bordered table-hover"}
 
 
 class TestCaseTable(tables.Table):
@@ -18,5 +18,5 @@ class TestCaseTable(tables.Table):
 
     class Meta:
         model = TestCase
-        attrs = {"class": "table"}
+        attrs = {"class": "table table-bordered table-hover"}
         exclude = ('objective', 'estimated_execution_time', )
