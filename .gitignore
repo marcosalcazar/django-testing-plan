@@ -20,7 +20,7 @@ lib64
 *~
 *.sqlite
 *settingsdev.py
-.htpasswd
+*htpasswd
 *.settings*
 
 # Installer logs
