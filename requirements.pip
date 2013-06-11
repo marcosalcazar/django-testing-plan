@@ -5,3 +5,4 @@ reportlab #for pisa
 html5lib #for pisa
 django-htauth
 South
+django_tables2

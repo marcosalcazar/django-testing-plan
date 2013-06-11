@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*- 
 # Django settings for testing_plan project.
 import os
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -80,6 +81,10 @@ STATICFILES_FINDERS = (
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '&6e4nqj5f%&wp#z0u^9-+uz0g=h&n!xu-q_jtv+$$qq0$&w@8#'
 
+TEMPLATE_CONTEXT_PROCESSORS += (
+    'django.core.context_processors.request',
+)
+
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
@@ -118,11 +123,12 @@ INSTALLED_APPS = (
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
-    
+
     'widget_tweaks',
     'htauth',
     'south',
-    
+    'django_tables2',
+
     'testing_plan',
     'testing',
 )

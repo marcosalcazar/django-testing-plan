@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<p>
+	{% blocktrans %}Are you sure you want to delete "{{ object }}"? This can't be undone.{% endblocktrans %}
+</p>
+<form method="POST" action="{{ object.get_absolute_delete_url }}">
+	{% csrf_token %}
+	<button class="btn btn-danger">
+		{% trans 'Yes' %}
+	</button>
+</form>
+</div>
+{% endblock %}

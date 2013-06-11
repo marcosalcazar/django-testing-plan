@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-10 17:11-0300\n"
+"POT-Creation-Date: 2013-06-11 09:56-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,13 +18,39 @@ msgstr ""
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\settings.py:31
+#: .\settings.py:32
 msgid "English"
 msgstr ""
 
-#: .\settings.py:32
+#: .\settings.py:33
 msgid "Español"
 msgstr ""
+
+#: .\templates\__confirm_delete.html.py:6
+#, python-format
+msgid "Are you sure you want to delete \"%(object)s\"? This can't be undone."
+msgstr "Esta seguro que desea borrar \"%(object)s\"? Esta accion no puede deshacerse."
+
+#: .\templates\__confirm_delete.html.py:11
+msgid "Yes"
+msgstr "Si"
+
+#: .\templates\__form.html.py:6
+msgid "Update"
+msgstr "Actualizar"
+
+#: .\templates\__form.html.py:8 .\templates\__list.html.py:4
+#: .\templates\__list_table.html.py:6
+msgid "New"
+msgstr "Crear"
+
+#: .\templates\__list.html.py:13 .\templates\__record_actions.html.py:2
+msgid "Modify"
+msgstr "Modificar"
+
+#: .\templates\__record_actions.html.py:3
+msgid "Delete"
+msgstr "Eliminar"
 
 #: .\templates\base.html.py:37
 msgid "Requirements"
@@ -40,19 +66,7 @@ msgstr "Reporte de Casos de Prueba"
 
 #: .\templates\base.html.py:61
 msgid "Log Out"
-msgstr ""
-
-#: .\templates\form.html.py:6
-msgid "Update"
-msgstr "Actualizar"
-
-#: .\templates\form.html.py:8 .\templates\list.html.py:4
-msgid "New"
-msgstr "Crear"
-
-#: .\templates\list.html.py:13
-msgid "Modify"
-msgstr "Modificar"
+msgstr "Salir"
 
 #: .\templates\login.html.py:7
 msgid "Your username and password didn't match. Please try again."

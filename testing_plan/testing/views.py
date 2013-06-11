@@ -5,8 +5,7 @@ from django.template.context import RequestContext
 from django.template.loader import render_to_string
 from django.utils.translation import ugettext as _
 from django.views.generic.base import View
-from django.views.generic.edit import CreateView, UpdateView
-from django.views.generic.list import ListView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from ho import pisa
 from testing.forms import TestCasePreConditionFormSet, \
     TestCasePostConditionFormSet, TestCaseStepFormSet, TestCaseRevisionForm, \
@@ -14,14 +13,17 @@ from testing.forms import TestCasePreConditionFormSet, \
 from testing.models import Requirement, TestCase
 import StringIO
 import cgi
+from django_tables2.views import SingleTableView
+from testing.tables import RequirementTable, TestCaseTable
 #from relatorio.templates.opendocument import Template
 #from django.conf import settings
 #import os
 #from django.shortcuts import render_to_response
 
 
-class RequirementListView(ListView):
+class RequirementListView(SingleTableView):
     model = Requirement
+    table_class = RequirementTable
 
 
 class RequirementCreateView(CreateView):
@@ -42,8 +44,14 @@ class RequirementUpdateView(UpdateView):
         return super(RequirementUpdateView, self).form_valid(form)
 
 
-class TestCaseListView(ListView):
+class RequirementDeleteView(DeleteView):
+    model = Requirement
+    success_url = reverse_lazy("testing:requirements")
+
+
+class TestCaseListView(SingleTableView):
     model = TestCase
+    table_class = TestCaseTable
 
 
 class TestCaseCreateView(CreateView):
@@ -193,6 +201,11 @@ class TestCaseUpdateView(UpdateView):
             return HttpResponseRedirect(self.get_success_url())
         else:
             return self.form_invalid(form)
+
+
+class TestCaseDeleteView(DeleteView):
+    model = TestCase
+    success_url = reverse_lazy("testing:testcases")
 
 
 def _generate_pdf(html):

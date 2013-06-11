@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-10 17:04-0300\n"
+"POT-Creation-Date: 2013-06-11 09:55-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <marcos.alcazar@gmail.com>\n"
 "Language-Team: ES <marcos.alcazar@gmail.com>\n"
@@ -70,116 +70,112 @@ msgstr "Tipo de Requerimiento"
 msgid "Name"
 msgstr "Nombre"
 
-#: .\models.py:27
-msgid "Created"
-msgstr ""
-
-#: .\models.py:40
+#: .\models.py:43
 msgid "Manual"
 msgstr ""
 
-#: .\models.py:41
+#: .\models.py:44
 msgid "Automated"
 msgstr "Automatizado"
 
-#: .\models.py:45
+#: .\models.py:48
 msgid "Unit"
 msgstr "Unidad"
 
-#: .\models.py:46
+#: .\models.py:49
 msgid "Integration"
 msgstr "Integracion"
 
-#: .\models.py:47
+#: .\models.py:50
 msgid "Security"
 msgstr "Seguridad"
 
-#: .\models.py:48
+#: .\models.py:51
 msgid "System"
 msgstr "Sistema"
 
-#: .\models.py:49
+#: .\models.py:52
 msgid "Acceptance"
 msgstr "Aceptacion"
 
-#: .\models.py:50
+#: .\models.py:53
 msgid "Load"
 msgstr "Carga"
 
-#: .\models.py:53
+#: .\models.py:56
 msgid "Title"
 msgstr "Titulo"
 
-#: .\models.py:54 .\templates\testing\test_cases_report.html.py:39
+#: .\models.py:57 .\templates\testing\test_cases_report.html.py:39
 msgid "Author"
 msgstr "Autor"
 
-#: .\models.py:55 .\templates\testing\test_cases_report.html.py:43
+#: .\models.py:58 .\templates\testing\test_cases_report.html.py:43
 msgid "Objective"
 msgstr "Objetivo"
 
-#: .\models.py:56
+#: .\models.py:59
 msgid "Type"
 msgstr "Tipo"
 
-#: .\models.py:59 .\templates\testing\requirement_form.html.py:4
+#: .\models.py:62 .\templates\testing\requirement_form.html.py:4
 #: .\templates\testing\test_cases_report.html.py:47
 msgid "Requirement"
 msgstr "Requerimiento"
 
-#: .\models.py:60
+#: .\models.py:63
 msgid "Execution Type"
 msgstr "Tipo de Ejecucion"
 
-#: .\models.py:64
+#: .\models.py:67
 msgid "Estimated Execution Time"
 msgstr "Tiempo Estimado de Ejecucion"
 
-#: .\models.py:77 .\models.py:87 .\models.py:98 .\models.py:113
+#: .\models.py:84 .\models.py:94 .\models.py:105 .\models.py:120
 #: .\templates\testing\test_cases_report.html.py:105
 #: .\templates\testing\testcase_form.html.py:171
 msgid "Description"
 msgstr "Descripcion"
 
-#: .\models.py:97 .\templates\testing\test_cases_report.html.py:103
+#: .\models.py:104 .\templates\testing\test_cases_report.html.py:103
 #: .\templates\testing\testcase_form.html.py:169
 msgid "User"
 msgstr "Usuario"
 
-#: .\models.py:99 .\templates\testing\test_cases_report.html.py:104
+#: .\models.py:106 .\templates\testing\test_cases_report.html.py:104
 #: .\templates\testing\testcase_form.html.py:170
 msgid "Date"
 msgstr "Fecha"
 
-#: .\models.py:105
+#: .\models.py:112
 msgid "Step number"
 msgstr "Numero de Paso"
 
-#: .\models.py:106
+#: .\models.py:113
 msgid "Step action"
 msgstr "Accion"
 
-#: .\models.py:107 .\templates\testing\test_cases_report.html.py:68
+#: .\models.py:114 .\templates\testing\test_cases_report.html.py:68
 msgid "Expected Result"
 msgstr "Resultado Esperado"
 
-#: .\views.py:32
+#: .\views.py:34
 msgid "Requirement created"
 msgstr "Requerimiento creado"
 
-#: .\views.py:41
+#: .\views.py:43
 msgid "Requirement updated"
 msgstr "Requerimiento actualizado"
 
-#: .\views.py:118
+#: .\views.py:126
 msgid "Test Case created"
 msgstr "Caso de Prueba creado"
 
-#: .\views.py:192
+#: .\views.py:200
 msgid "Test Case updated"
 msgstr "Caso de Prueba actualizado"
 
-#: .\views.py:204
+#: .\views.py:217
 #, python-format
 msgid "Error while creating the PDF file: %s"
 msgstr "Error creando el archivo PDF: %s"

@@ -31,6 +31,10 @@ class Requirement(models.Model):
     def get_absolute_url(self):
         return reverse_lazy('testing:requirement_update', 
                             kwargs={'pk': self.pk})
+        
+    def get_absolute_delete_url(self):
+        return reverse_lazy('testing:requirement_delete', 
+                            kwargs={'pk': self.pk})
 
 
 class TestCase(models.Model):
@@ -67,6 +71,10 @@ class TestCase(models.Model):
     
     def get_absolute_url(self):
         return reverse_lazy('testing:testcase_update', 
+                            kwargs={'pk': self.pk})
+    
+    def get_absolute_delete_url(self):
+        return reverse_lazy('testing:testcase_delete', 
                             kwargs={'pk': self.pk})
 
 
