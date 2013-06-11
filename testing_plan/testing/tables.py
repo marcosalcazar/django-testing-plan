@@ -14,6 +14,7 @@ class RequirementTable(tables.Table):
 
 
 class TestCaseTable(tables.Table):
+    author = tables.TemplateColumn(template_name='__record_author_user_display_name.html')
     actions = tables.TemplateColumn(template_name='__record_actions.html')
 
     class Meta:

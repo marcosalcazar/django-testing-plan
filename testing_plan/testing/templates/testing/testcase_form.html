@@ -1,6 +1,7 @@
 {% extends '__form.html' %}
 {% load i18n %}
 {% load widget_tweaks %}
+{% load user_tags %}
 
 {% block extra_js %}
 {{ block.super }}
@@ -174,7 +175,7 @@
 					<tbody>
 						{% for revision in form.instance.revisions.all %}
 						<tr>
-							<td>{{ revision.user }}</td>
+							<td>{% user_display_name revision.user %}</td>
 							<td>{{ revision.date }}</td>
 							<td>{{ revision.description }}</td>
 						</tr>

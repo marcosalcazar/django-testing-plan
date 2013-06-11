@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load i18n %}
+{% load user_tags %}
 
 {% block document_title %}{{ block.super }} - {% trans 'Test Cases Report' %}{% endblock %}
 
@@ -37,7 +38,7 @@ table.gridtable td {
 		</tr>
 		<tr>
 			<td width="20%">{% trans 'Author' %}</td>
-			<td width="80%">{{ tc.author }}</td>
+			<td width="80%">{% user_display_name tc.author %}</td>
 		</tr>
 		<tr>
 			<td>{% trans 'Objective' %}</td>
@@ -108,7 +109,7 @@ table.gridtable td {
 					<tbody>
 						{% for revision in tc.revisions.all %}
 						<tr>
-							<td>{{ revision.user }}</td>
+							<td>{% user_display_name revision.user %}</td>
 							<td>{{ revision.date }}</td>
 							<td>{{ revision.description }}</td>
 						</tr>
