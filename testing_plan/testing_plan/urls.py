@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     
     url(r'^$', login_required(RedirectView.as_view(url='/testing/requirements/')), name='home'),
     url(r'^testing/', include('testing.urls', namespace='testing')),
+    url(r'^user/', include('user.urls', namespace='user')),
     
     #url(r'^admin/', include(admin.site.urls)),
     (r'^i18n/', include('django.conf.urls.i18n')),

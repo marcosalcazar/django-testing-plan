@@ -1,4 +1,5 @@
 {% load i18n %}
+{% load user_tags %}
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -56,6 +57,9 @@
 									</select>
 									<input type="submit" value="Go" />
 									</form>
+							</li>
+							<li>
+								<a href="{% url 'user:userinfo' user.pk %}">{% user_display_name user %}</a>
 							</li>
 							<li>
 								<a href="{% url 'logout' %}">{% trans 'Log Out' %}</a>

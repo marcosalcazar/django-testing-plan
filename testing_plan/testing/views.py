@@ -6,15 +6,15 @@ from django.template.loader import render_to_string
 from django.utils.translation import ugettext as _
 from django.views.generic.base import View
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django_tables2.views import SingleTableView
 from ho import pisa
 from testing.forms import TestCasePreConditionFormSet, \
     TestCasePostConditionFormSet, TestCaseStepFormSet, TestCaseRevisionForm, \
     TestCaseCorrectiveActionFormSet, TestCaseForm
 from testing.models import Requirement, TestCase
+from testing.tables import RequirementTable, TestCaseTable
 import StringIO
 import cgi
-from django_tables2.views import SingleTableView
-from testing.tables import RequirementTable, TestCaseTable
 #from relatorio.templates.opendocument import Template
 #from django.conf import settings
 #import os

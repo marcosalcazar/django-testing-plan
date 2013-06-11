@@ -131,6 +131,7 @@ INSTALLED_APPS = (
 
     'testing_plan',
     'testing',
+    'user',
 )
 
 AUTHENTICATION_BACKENDS = (
