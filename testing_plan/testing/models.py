@@ -58,7 +58,9 @@ class TestCase(models.Model):
     test_case_type = models.CharField(_('Type'),
                                       max_length=1, 
                                       choices=TEST_CASE_TYPES)
-    requirement = models.ForeignKey(Requirement, verbose_name=_('Requirement'))
+    requirement = models.ForeignKey(Requirement, 
+                                    verbose_name=_('Requirement'),
+                                    related_name='test_cases')
     execution_type = models.CharField(verbose_name=_('Execution Type'),
                                       max_length=2,
                                       choices=EXECUTION_TYPES)

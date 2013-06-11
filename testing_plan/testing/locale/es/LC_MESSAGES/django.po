@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-11 10:23-0300\n"
+"POT-Creation-Date: 2013-06-11 10:46-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <marcos.alcazar@gmail.com>\n"
 "Language-Team: ES <marcos.alcazar@gmail.com>\n"
@@ -114,46 +114,50 @@ msgstr "Objetivo"
 msgid "Type"
 msgstr "Tipo"
 
-#: .\models.py:61 .\templates\testing\requirement_form.html.py:4
+#: .\models.py:62 .\templates\testing\requirement_form.html.py:4
 #: .\templates\testing\test_cases_report.html.py:47
 msgid "Requirement"
 msgstr "Requerimiento"
 
-#: .\models.py:62
+#: .\models.py:64
 msgid "Execution Type"
 msgstr "Tipo de Ejecucion"
 
-#: .\models.py:66
+#: .\models.py:68
 msgid "Estimated Execution Time"
 msgstr "Tiempo Estimado de Ejecucion"
 
-#: .\models.py:83 .\models.py:93 .\models.py:104 .\models.py:119
+#: .\models.py:85 .\models.py:95 .\models.py:106 .\models.py:121
 #: .\templates\testing\test_cases_report.html.py:105
 #: .\templates\testing\testcase_form.html.py:171
 msgid "Description"
 msgstr "Descripcion"
 
-#: .\models.py:103 .\templates\testing\test_cases_report.html.py:103
+#: .\models.py:105 .\templates\testing\test_cases_report.html.py:103
 #: .\templates\testing\testcase_form.html.py:169
 msgid "User"
 msgstr "Usuario"
 
-#: .\models.py:105 .\templates\testing\test_cases_report.html.py:104
+#: .\models.py:107 .\templates\testing\test_cases_report.html.py:104
 #: .\templates\testing\testcase_form.html.py:170
 msgid "Date"
 msgstr "Fecha"
 
-#: .\models.py:111
+#: .\models.py:113
 msgid "Step number"
 msgstr "Numero de Paso"
 
-#: .\models.py:112
+#: .\models.py:114
 msgid "Step action"
 msgstr "Accion"
 
-#: .\models.py:113 .\templates\testing\test_cases_report.html.py:68
+#: .\models.py:115 .\templates\testing\test_cases_report.html.py:68
 msgid "Expected Result"
 msgstr "Resultado Esperado"
+
+#: .\tables.py:8
+msgid "Number of Test Cases"
+msgstr "Cantidad de Casos de Prueba"
 
 #: .\views.py:34
 msgid "Requirement created"

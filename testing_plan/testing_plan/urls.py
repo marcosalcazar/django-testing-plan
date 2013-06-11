@@ -1,14 +1,13 @@
 from django.conf.urls import patterns, include, url
+from django.views.generic.base import RedirectView
+from django.contrib.auth.decorators import login_required
 
 #from django.contrib import admin
-from django.contrib.auth.decorators import login_required
-from django.views.generic.base import TemplateView
-
 #admin.autodiscover()
 
 urlpatterns = patterns('',
     
-    url(r'^$', login_required(TemplateView.as_view(template_name='base.html')), name='home'),
+    url(r'^$', login_required(RedirectView.as_view(url='/testing/requirements/')), name='home'),
     url(r'^testing/', include('testing.urls', namespace='testing')),
     
     #url(r'^admin/', include(admin.site.urls)),
