@@ -7,8 +7,7 @@ from django.core.urlresolvers import reverse_lazy
 class Requirement(models.Model):
     
     REQUIREMENT_TYPES = (
-        ('FC', _('Functional - Use case')),
-        ('FS', _('Functional - Security')),
+        ('FC', _('Functional')),
         ('US', _('Usability')),
         ('RE', _('Reliability')),
         ('PE', _('Performance')),
