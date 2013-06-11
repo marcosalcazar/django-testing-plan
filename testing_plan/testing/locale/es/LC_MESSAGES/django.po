@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-11 10:46-0300\n"
+"POT-Creation-Date: 2013-06-11 14:49-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <marcos.alcazar@gmail.com>\n"
 "Language-Team: ES <marcos.alcazar@gmail.com>\n"
@@ -102,11 +102,11 @@ msgstr "Carga"
 msgid "Title"
 msgstr "Titulo"
 
-#: .\models.py:56 .\templates\testing\test_cases_report.html.py:39
+#: .\models.py:56 .\templates\testing\test_cases_report.html.py:40
 msgid "Author"
 msgstr "Autor"
 
-#: .\models.py:57 .\templates\testing\test_cases_report.html.py:43
+#: .\models.py:57 .\templates\testing\test_cases_report.html.py:44
 msgid "Objective"
 msgstr "Objetivo"
 
@@ -115,7 +115,7 @@ msgid "Type"
 msgstr "Tipo"
 
 #: .\models.py:62 .\templates\testing\requirement_form.html.py:4
-#: .\templates\testing\test_cases_report.html.py:47
+#: .\templates\testing\test_cases_report.html.py:48
 msgid "Requirement"
 msgstr "Requerimiento"
 
@@ -128,18 +128,18 @@ msgid "Estimated Execution Time"
 msgstr "Tiempo Estimado de Ejecucion"
 
 #: .\models.py:85 .\models.py:95 .\models.py:106 .\models.py:121
-#: .\templates\testing\test_cases_report.html.py:105
-#: .\templates\testing\testcase_form.html.py:171
+#: .\templates\testing\test_cases_report.html.py:106
+#: .\templates\testing\testcase_form.html.py:172
 msgid "Description"
 msgstr "Descripcion"
 
-#: .\models.py:105 .\templates\testing\test_cases_report.html.py:103
-#: .\templates\testing\testcase_form.html.py:169
+#: .\models.py:105 .\templates\testing\test_cases_report.html.py:104
+#: .\templates\testing\testcase_form.html.py:170
 msgid "User"
 msgstr "Usuario"
 
-#: .\models.py:107 .\templates\testing\test_cases_report.html.py:104
-#: .\templates\testing\testcase_form.html.py:170
+#: .\models.py:107 .\templates\testing\test_cases_report.html.py:105
+#: .\templates\testing\testcase_form.html.py:171
 msgid "Date"
 msgstr "Fecha"
 
@@ -151,13 +151,17 @@ msgstr "Numero de Paso"
 msgid "Step action"
 msgstr "Accion"
 
-#: .\models.py:115 .\templates\testing\test_cases_report.html.py:68
+#: .\models.py:115 .\templates\testing\test_cases_report.html.py:69
 msgid "Expected Result"
 msgstr "Resultado Esperado"
 
 #: .\tables.py:8
 msgid "Number of Test Cases"
 msgstr "Cantidad de Casos de Prueba"
+
+#: .\tables.py:10 .\templates\testing\test_cases_report.html.py:62
+msgid "Actions"
+msgstr "Acciones"
 
 #: .\views.py:34
 msgid "Requirement created"
@@ -184,76 +188,72 @@ msgstr "Error creando el archivo PDF: %s"
 msgid "Requirements"
 msgstr "Requerimientos"
 
-#: .\templates\testing\test_cases_report.html.py:4
+#: .\templates\testing\test_cases_report.html.py:5
 msgid "Test Cases Report"
 msgstr "Reporte de Casos de Prueba"
 
-#: .\templates\testing\test_cases_report.html.py:51
-#: .\templates\testing\testcase_form.html.py:51
+#: .\templates\testing\test_cases_report.html.py:52
+#: .\templates\testing\testcase_form.html.py:52
 msgid "Pre-Conditions"
 msgstr "Pre-Condiciones"
 
-#: .\templates\testing\test_cases_report.html.py:61
-msgid "Actions"
-msgstr "Acciones"
-
-#: .\templates\testing\test_cases_report.html.py:66
+#: .\templates\testing\test_cases_report.html.py:67
 msgid "Step Number"
 msgstr "Numero de Paso"
 
-#: .\templates\testing\test_cases_report.html.py:67
+#: .\templates\testing\test_cases_report.html.py:68
 msgid "Action"
 msgstr "Accion"
 
-#: .\templates\testing\test_cases_report.html.py:84
+#: .\templates\testing\test_cases_report.html.py:85
 msgid "Execution type"
 msgstr "Tipo de Ejecucion"
 
-#: .\templates\testing\test_cases_report.html.py:88
-#: .\templates\testing\testcase_form.html.py:79
+#: .\templates\testing\test_cases_report.html.py:89
+#: .\templates\testing\testcase_form.html.py:80
 msgid "Post-Conditions"
 msgstr "Post-Condiciones"
 
-#: .\templates\testing\test_cases_report.html.py:98
-#: .\templates\testing\testcase_form.html.py:164
+#: .\templates\testing\test_cases_report.html.py:99
+#: .\templates\testing\testcase_form.html.py:165
 msgid "Revisions"
 msgstr "Revisiones"
 
-#: .\templates\testing\test_cases_report.html.py:121
+#: .\templates\testing\test_cases_report.html.py:122
 msgid "Estimated execution type"
 msgstr "Tiempo estimado de ejecucion"
 
-#: .\templates\testing\test_cases_report.html.py:125
+#: .\templates\testing\test_cases_report.html.py:126
 msgid "Status"
 msgstr "Estado"
 
-#: .\templates\testing\test_cases_report.html.py:129
+#: .\templates\testing\test_cases_report.html.py:130
 msgid "Corrective actions"
 msgstr "Acciones correctivas"
-
-#: .\templates\testing\testcase_form.html.py:14
-#: .\templates\testing\testcase_form.html.py:20
-#: .\templates\testing\testcase_form.html.py:26
-#: .\templates\testing\testcase_form.html.py:32
-msgid "add another"
-msgstr "agregar otro"
 
 #: .\templates\testing\testcase_form.html.py:15
 #: .\templates\testing\testcase_form.html.py:21
 #: .\templates\testing\testcase_form.html.py:27
 #: .\templates\testing\testcase_form.html.py:33
+msgid "add another"
+msgstr "agregar otro"
+
+#: .\templates\testing\testcase_form.html.py:16
+#: .\templates\testing\testcase_form.html.py:22
+#: .\templates\testing\testcase_form.html.py:28
+#: .\templates\testing\testcase_form.html.py:34
 msgid "remove"
 msgstr "quitar"
 
-#: .\templates\testing\testcase_form.html.py:40
+#: .\templates\testing\testcase_form.html.py:41
 msgid "Test Case"
 msgstr "Caso de Prueba"
 
-#: .\templates\testing\testcase_form.html.py:106
+#: .\templates\testing\testcase_form.html.py:107
 msgid "Steps"
 msgstr "Pasos"
 
-#: .\templates\testing\testcase_form.html.py:137
+#: .\templates\testing\testcase_form.html.py:138
 msgid "Corrective Actions"
 msgstr "Acciones Correctivas"
 

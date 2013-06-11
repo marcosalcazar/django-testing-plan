@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-11 09:56-0300\n"
+"POT-Creation-Date: 2013-06-11 14:47-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,7 +29,8 @@ msgstr ""
 #: .\templates\__confirm_delete.html.py:6
 #, python-format
 msgid "Are you sure you want to delete \"%(object)s\"? This can't be undone."
-msgstr "Esta seguro que desea borrar \"%(object)s\"? Esta accion no puede deshacerse."
+msgstr ""
+"Esta seguro que desea borrar \"%(object)s\"? Esta accion no puede deshacerse."
 
 #: .\templates\__confirm_delete.html.py:11
 msgid "Yes"
@@ -40,7 +41,7 @@ msgid "Update"
 msgstr "Actualizar"
 
 #: .\templates\__form.html.py:8 .\templates\__list.html.py:4
-#: .\templates\__list_table.html.py:6
+#: .\templates\__list_table.html.py:5
 msgid "New"
 msgstr "Crear"
 
@@ -52,19 +53,23 @@ msgstr "Modificar"
 msgid "Delete"
 msgstr "Eliminar"
 
-#: .\templates\base.html.py:37
+#: .\templates\base.html.py:38
 msgid "Requirements"
 msgstr "Requerimientos"
 
-#: .\templates\base.html.py:40
+#: .\templates\base.html.py:41
 msgid "Test Cases"
 msgstr "Casos de Prueba"
 
-#: .\templates\base.html.py:43
+#: .\templates\base.html.py:44
 msgid "Test Cases Report"
 msgstr "Reporte de Casos de Prueba"
 
-#: .\templates\base.html.py:61
+#: .\templates\base.html.py:66
+msgid "Profile"
+msgstr "Perfil"
+
+#: .\templates\base.html.py:69
 msgid "Log Out"
 msgstr "Salir"
 

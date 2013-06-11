@@ -32,8 +32,8 @@
 					</button>
 					<a class="brand" href="{% url 'home' %}">Testing</a>
 					<div class="nav-collapse collapse">
+						{% if user.is_authenticated %}
 						<ul class="nav">
-							{% if user.is_authenticated %}
 							<li>
 								<a href="{% url 'testing:requirements' %}">{% trans 'Requirements' %}</a>
 							</li>
@@ -43,29 +43,35 @@
 							<li>
 								<a href="{% url 'testing:testcasesreports' %}">{% trans 'Test Cases Report' %}</a>
 							</li>
-							<li class='pull-right'>
+						</ul>
+						<ul class='nav pull-right'>
+							<li class="divider-vertical"></li>
+							<li>
 								<form action="{% url 'set_language' %}" method="post" class="navbar-form">
 									{% csrf_token %}
 									<input name="next" type="hidden" value="{{ redirect_to }}" />
-									<select name="language">
-									{% get_language_info_list for LANGUAGES as languages %}
-									{% for language in languages %}
-									<option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected="selected"{% endif %}>
-									    {{ language.name_local }} ({{ language.code }})
-									</option>
-									{% endfor %}
+									<select name="language" class="input-small">
+										{% get_language_info_list for LANGUAGES as languages %}
+										{% for language in languages %}
+										<option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected="selected"{% endif %}> {{ language.name_local }} ({{ language.code }}) </option>
+										{% endfor %}
 									</select>
-									<input type="submit" value="Go" />
-									</form>
+									<input type="submit" value="Go" class="btn"/>
+								</form>
 							</li>
-							<li>
-								<a href="{% url 'user:userinfo' user.pk %}">{% user_display_name user %}</a>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">{% user_display_name user %} <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li>
+										<a href="{% url 'user:userinfo' user.pk %}">{% trans "Profile" %}</a>
+									</li>
+									<li>
+										<a href="{% url 'logout' %}">{% trans 'Log Out' %}</a>
+									</li>
+								</ul>
 							</li>
-							<li>
-								<a href="{% url 'logout' %}">{% trans 'Log Out' %}</a>
-							</li>
-							{% endif %}
 						</ul>
+						{% endif %}
 					</div><!--/.nav-collapse -->
 				</div>
 			</div>
