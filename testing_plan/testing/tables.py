@@ -5,7 +5,8 @@ from testing.models import TestCase
 class TestCaseTable(tables.Table):
     author = tables.TemplateColumn(template_name='__record_author_user_display_name.html')
     actions = tables.TemplateColumn(template_name='__record_actions.html',
-                                    sortable=False)
+                                    sortable=False,
+                                    verbose_name=_("Actions"))
 
     class Meta:
         model = TestCase

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-11 14:49-0300\n"
+"POT-Creation-Date: 2013-06-12 09:16-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <marcos.alcazar@gmail.com>\n"
 "Language-Team: ES <marcos.alcazar@gmail.com>\n"
@@ -18,175 +18,110 @@ msgstr ""
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\models.py:10
-msgid "Functional"
-msgstr "Funcional"
-
 #: .\models.py:11
-msgid "Usability"
-msgstr "Usabilidad"
-
-#: .\models.py:12
-msgid "Reliability"
-msgstr "Fiabilidad"
-
-#: .\models.py:13
-msgid "Performance"
-msgstr "Rendimiento"
-
-#: .\models.py:14
-msgid "Supportability"
-msgstr "Soporte"
-
-#: .\models.py:15
-msgid "(+) Implementation"
-msgstr "(+) Implementacion"
-
-#: .\models.py:16
-msgid "(+) Interfaces (Not GUI)"
-msgstr "(+) Interfaces (No GUI)"
-
-#: .\models.py:17
-msgid "(+) Operations"
-msgstr "(+) Operaciones"
-
-#: .\models.py:18
-msgid "(+) Packaging"
-msgstr "(+) Empaquetamiento"
-
-#: .\models.py:19
-msgid "(+) Legals"
-msgstr "(+) Legales"
-
-#: .\models.py:22
-msgid "Requirement Type"
-msgstr "Tipo de Requerimiento"
-
-#: .\models.py:25
-msgid "Name"
-msgstr "Nombre"
-
-#: .\models.py:42
 msgid "Manual"
 msgstr ""
 
-#: .\models.py:43
+#: .\models.py:12
 msgid "Automated"
 msgstr "Automatizado"
 
-#: .\models.py:47
+#: .\models.py:16
 msgid "Unit"
 msgstr "Unidad"
 
-#: .\models.py:48
+#: .\models.py:17
 msgid "Integration"
 msgstr "Integracion"
 
-#: .\models.py:49
+#: .\models.py:18
 msgid "Security"
 msgstr "Seguridad"
 
-#: .\models.py:50
+#: .\models.py:19
 msgid "System"
 msgstr "Sistema"
 
-#: .\models.py:51
+#: .\models.py:20
 msgid "Acceptance"
 msgstr "Aceptacion"
 
-#: .\models.py:52
+#: .\models.py:21
 msgid "Load"
 msgstr "Carga"
 
-#: .\models.py:55
+#: .\models.py:24
 msgid "Title"
 msgstr "Titulo"
 
-#: .\models.py:56 .\templates\testing\test_cases_report.html.py:40
+#: .\models.py:25 .\templates\testing\test_cases_report.html.py:40
 msgid "Author"
 msgstr "Autor"
 
-#: .\models.py:57 .\templates\testing\test_cases_report.html.py:44
+#: .\models.py:26 .\templates\testing\test_cases_report.html.py:44
 msgid "Objective"
 msgstr "Objetivo"
 
-#: .\models.py:58
+#: .\models.py:27
 msgid "Type"
 msgstr "Tipo"
 
-#: .\models.py:62 .\templates\testing\requirement_form.html.py:4
-#: .\templates\testing\test_cases_report.html.py:48
+#: .\models.py:31 .\templates\testing\test_cases_report.html.py:48
 msgid "Requirement"
 msgstr "Requerimiento"
 
-#: .\models.py:64
+#: .\models.py:33
 msgid "Execution Type"
 msgstr "Tipo de Ejecucion"
 
-#: .\models.py:68
+#: .\models.py:37
 msgid "Estimated Execution Time"
 msgstr "Tiempo Estimado de Ejecucion"
 
-#: .\models.py:85 .\models.py:95 .\models.py:106 .\models.py:121
+#: .\models.py:54 .\models.py:64 .\models.py:75 .\models.py:90
 #: .\templates\testing\test_cases_report.html.py:106
 #: .\templates\testing\testcase_form.html.py:172
 msgid "Description"
 msgstr "Descripcion"
 
-#: .\models.py:105 .\templates\testing\test_cases_report.html.py:104
+#: .\models.py:74 .\templates\testing\test_cases_report.html.py:104
 #: .\templates\testing\testcase_form.html.py:170
 msgid "User"
 msgstr "Usuario"
 
-#: .\models.py:107 .\templates\testing\test_cases_report.html.py:105
+#: .\models.py:76 .\templates\testing\test_cases_report.html.py:105
 #: .\templates\testing\testcase_form.html.py:171
 msgid "Date"
 msgstr "Fecha"
 
-#: .\models.py:113
+#: .\models.py:82
 msgid "Step number"
 msgstr "Numero de Paso"
 
-#: .\models.py:114
+#: .\models.py:83
 msgid "Step action"
 msgstr "Accion"
 
-#: .\models.py:115 .\templates\testing\test_cases_report.html.py:69
+#: .\models.py:84 .\templates\testing\test_cases_report.html.py:69
 msgid "Expected Result"
 msgstr "Resultado Esperado"
 
-#: .\tables.py:8
-msgid "Number of Test Cases"
-msgstr "Cantidad de Casos de Prueba"
-
-#: .\tables.py:10 .\templates\testing\test_cases_report.html.py:62
+#: .\tables.py:9 .\templates\testing\test_cases_report.html.py:62
 msgid "Actions"
 msgstr "Acciones"
 
-#: .\views.py:34
-msgid "Requirement created"
-msgstr "Requerimiento creado"
-
-#: .\views.py:43
-msgid "Requirement updated"
-msgstr "Requerimiento actualizado"
-
-#: .\views.py:126
+#: .\views.py:98
 msgid "Test Case created"
 msgstr "Caso de Prueba creado"
 
-#: .\views.py:200
+#: .\views.py:171
 msgid "Test Case updated"
 msgstr "Caso de Prueba actualizado"
 
-#: .\views.py:217
+#: .\views.py:188
 #, python-format
 msgid "Error while creating the PDF file: %s"
 msgstr "Error creando el archivo PDF: %s"
-
-#: .\templates\testing\requirement_list.html.py:4
-msgid "Requirements"
-msgstr "Requerimientos"
 
 #: .\templates\testing\test_cases_report.html.py:5
 msgid "Test Cases Report"
@@ -260,6 +195,54 @@ msgstr "Acciones Correctivas"
 #: .\templates\testing\testcase_list.html.py:4
 msgid "Test Cases"
 msgstr "Casos de Prueba"
+
+#~ msgid "Functional"
+#~ msgstr "Funcional"
+
+#~ msgid "Usability"
+#~ msgstr "Usabilidad"
+
+#~ msgid "Reliability"
+#~ msgstr "Fiabilidad"
+
+#~ msgid "Performance"
+#~ msgstr "Rendimiento"
+
+#~ msgid "Supportability"
+#~ msgstr "Soporte"
+
+#~ msgid "(+) Implementation"
+#~ msgstr "(+) Implementacion"
+
+#~ msgid "(+) Interfaces (Not GUI)"
+#~ msgstr "(+) Interfaces (No GUI)"
+
+#~ msgid "(+) Operations"
+#~ msgstr "(+) Operaciones"
+
+#~ msgid "(+) Packaging"
+#~ msgstr "(+) Empaquetamiento"
+
+#~ msgid "(+) Legals"
+#~ msgstr "(+) Legales"
+
+#~ msgid "Requirement Type"
+#~ msgstr "Tipo de Requerimiento"
+
+#~ msgid "Name"
+#~ msgstr "Nombre"
+
+#~ msgid "Number of Test Cases"
+#~ msgstr "Cantidad de Casos de Prueba"
+
+#~ msgid "Requirement created"
+#~ msgstr "Requerimiento creado"
+
+#~ msgid "Requirement updated"
+#~ msgstr "Requerimiento actualizado"
+
+#~ msgid "Requirements"
+#~ msgstr "Requerimientos"
 
 #~ msgid "Functional - Security"
 #~ msgstr "Funcional - Seguridad"
