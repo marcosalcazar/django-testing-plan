@@ -11,42 +11,14 @@ from ho import pisa
 from testing.forms import TestCasePreConditionFormSet, \
     TestCasePostConditionFormSet, TestCaseStepFormSet, TestCaseRevisionForm, \
     TestCaseCorrectiveActionFormSet, TestCaseForm
-from testing.models import Requirement, TestCase
-from testing.tables import RequirementTable, TestCaseTable
+from testing.models import TestCase
+from testing.tables import TestCaseTable
 import StringIO
 import cgi
 #from relatorio.templates.opendocument import Template
 #from django.conf import settings
 #import os
 #from django.shortcuts import render_to_response
-
-
-class RequirementListView(SingleTableView):
-    model = Requirement
-    table_class = RequirementTable
-
-
-class RequirementCreateView(CreateView):
-    model = Requirement
-    success_url = reverse_lazy("testing:requirements")
-    
-    def form_valid(self, form):
-        messages.success(self.request, _(u'Requirement created'))
-        return super(RequirementCreateView, self).form_valid(form)
-
-
-class RequirementUpdateView(UpdateView):
-    model = Requirement
-    success_url = reverse_lazy("testing:requirements")
-    
-    def form_valid(self, form):
-        messages.success(self.request, _(u'Requirement updated'))
-        return super(RequirementUpdateView, self).form_valid(form)
-
-
-class RequirementDeleteView(DeleteView):
-    model = Requirement
-    success_url = reverse_lazy("testing:requirements")
 
 
 class TestCaseListView(SingleTableView):
@@ -127,7 +99,6 @@ class TestCaseCreateView(CreateView):
             return HttpResponseRedirect(self.get_success_url())
         else:
             return self.form_invalid(form)
-            
 
 
 class TestCaseUpdateView(UpdateView):
@@ -228,6 +199,7 @@ class TestCasesReportView(View):
         html = render_to_string(
             self.template_name, data, context_instance=RequestContext(request))
         return _generate_pdf(html)
+
 
 # class TestCasesReportView(View):
 #     

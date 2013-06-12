@@ -129,6 +129,7 @@ INSTALLED_APPS = (
     'south',
     'django_tables2',
 
+    'requirements',
     'testing_plan',
     'testing',
     'user',

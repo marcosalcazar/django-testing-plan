@@ -7,7 +7,8 @@ from django.contrib.auth.decorators import login_required
 
 urlpatterns = patterns('',
     
-    url(r'^$', login_required(RedirectView.as_view(url='/testing/requirements/')), name='home'),
+    url(r'^$', login_required(RedirectView.as_view(url='/requirements/requirements/')), name='home'),
+    url(r'^requirements/', include('requirements.urls', namespace='requirements')),
     url(r'^testing/', include('testing.urls', namespace='testing')),
     url(r'^user/', include('user.urls', namespace='user')),
     
