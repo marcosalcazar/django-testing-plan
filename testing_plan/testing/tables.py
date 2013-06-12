@@ -1,5 +1,6 @@
 import django_tables2 as tables
 from testing.models import TestCase
+from django.utils.translation import ugettext_lazy as _
 
 
 class TestCaseTable(tables.Table):
