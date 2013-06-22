@@ -135,33 +135,6 @@
 					</tbody>
 				</table>
 			</div>
-			<h3>{% trans "Corrective Actions" %}</h3>
-			<div>
-				{{ correctiveactions_formset.management_form }}
-				<table id="correctiveactions" class='table table-condensed'>
-					<thead>
-						{% with correctiveactions_formset.forms|first as pc %}
-						<tr>
-							<td>{{ pc.description.label }}</td>
-							<td>{{ pc.DELETE.label }}</td>
-						</tr>
-						{% endwith %}
-					</thead>
-					<tbody>
-						{% for subform in correctiveactions_formset.forms %}
-						<tr>
-							<td>{% render_field subform.description class+='span6' %}{{ subform.description.errors }}</td>
-							<td>
-								{{ subform.DELETE }}{{ subform.DELETE.errors }}
-								{% for h in subform.hidden_fields %}
-								{{ h }}
-								{% endfor %}
-							</td>
-						</tr>
-						{% endfor %}
-					</tbody>
-				</table>
-			</div>
 			<h3>{% trans "Revisions" %}</h3>
 			<div>
 				<table class="table table-condensed">

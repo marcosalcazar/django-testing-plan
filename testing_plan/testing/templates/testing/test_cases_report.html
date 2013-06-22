@@ -126,16 +126,6 @@ table.gridtable td {
 			<td>{% trans 'Status' %}</td>
 			<td></td>
 		</tr>
-		<tr>
-			<td>{% trans 'Corrective actions' %}</td>
-			<td>
-				<ul>
-					{% for c in tc.corrective_actions.all %}
-					<li>{{ c }}</li>
-					{% endfor %}
-				</ul>
-			</td>
-		</tr>
 	</tbody>
 </table>
 <pdf:nextpage />

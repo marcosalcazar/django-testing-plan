@@ -84,11 +84,11 @@ class TestCaseStep(models.Model):
     step_expected_result = models.TextField(_('Expected Result'))
 
 
-class TestCaseCorrectiveAction(models.Model):
-
-    test_case = models.ForeignKey(TestCase, related_name='corrective_actions')
-    description = models.CharField(verbose_name=_('Description'), 
-                                   max_length=255)
-    
-    def __unicode__(self):
-        return self.description
+# class TestCaseCorrectiveAction(models.Model):
+# 
+#     test_case = models.ForeignKey(TestCase, related_name='corrective_actions')
+#     description = models.CharField(verbose_name=_('Description'), 
+#                                    max_length=255)
+#     
+#     def __unicode__(self):
+#         return self.description
