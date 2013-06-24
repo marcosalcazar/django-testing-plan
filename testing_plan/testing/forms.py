@@ -1,7 +1,7 @@
 from django import forms
 from django.forms.models import inlineformset_factory
 from testing.models import TestCasePreCondition, TestCase, TestCasePostCondition, \
-    TestCaseStep, TestCaseRevision, TestCaseCorrectiveAction
+    TestCaseStep, TestCaseRevision
 
 
 TestCasePreConditionFormSet = \
@@ -16,8 +16,8 @@ TestCaseStepFormSet = \
     inlineformset_factory(TestCase, TestCaseStep)
 
 
-TestCaseCorrectiveActionFormSet = \
-    inlineformset_factory(TestCase, TestCaseCorrectiveAction)
+# TestCaseCorrectiveActionFormSet = \
+#     inlineformset_factory(TestCase, TestCaseCorrectiveAction)
 
 
 class TestCaseRevisionForm(forms.ModelForm):
