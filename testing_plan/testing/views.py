@@ -10,7 +10,7 @@ from django_tables2.views import SingleTableView
 from ho import pisa
 from testing.forms import TestCasePreConditionFormSet, \
     TestCasePostConditionFormSet, TestCaseStepFormSet, TestCaseRevisionForm, \
-    TestCaseCorrectiveActionFormSet, TestCaseForm
+    TestCaseForm
 from testing.models import TestCase
 from testing.tables import TestCaseTable
 import StringIO
@@ -48,10 +48,6 @@ class TestCaseCreateView(CreateView):
         context['revision_form'] = TestCaseRevisionForm(
             self.request.POST or None
         )
-        context['correctiveactions_formset'] = TestCaseCorrectiveActionFormSet(
-            self.request.POST or None,
-            instance=self.model()
-        )
         return context
     
     def post(self, request, *args, **kwargs):
@@ -63,14 +59,12 @@ class TestCaseCreateView(CreateView):
         postconditions_formset = context['postconditions_formset']
         steps_formset = context['steps_formset']
         revision_form = context['revision_form']
-        correctiveactions_formset = context['correctiveactions_formset']
 
         if form.is_valid() and \
             preconditions_formset.is_valid() and \
             postconditions_formset.is_valid() and \
             steps_formset.is_valid() and \
-            revision_form.is_valid() and \
-            correctiveactions_formset.is_valid():
+            revision_form.is_valid():
 
             self.object = form.save(commit=False)
             self.object.author = self.request.user
@@ -91,10 +85,6 @@ class TestCaseCreateView(CreateView):
             revision.test_case = self.object
             revision.user = self.request.user
             revision.save()
-            correctiveactions = correctiveactions_formset.save(commit=False)
-            for c in correctiveactions:
-                c.test_case = self.object
-                c.save()
             messages.success(self.request, _('Test Case created'))
             return HttpResponseRedirect(self.get_success_url())
         else:
@@ -123,10 +113,6 @@ class TestCaseUpdateView(UpdateView):
         context['revision_form'] = TestCaseRevisionForm(
             self.request.POST or None
         )
-        context['correctiveactions_formset'] = TestCaseCorrectiveActionFormSet(
-            self.request.POST or None,
-            instance=self.object
-        )
         return context
     
     def post(self, request, *args, **kwargs):
@@ -139,14 +125,12 @@ class TestCaseUpdateView(UpdateView):
         postconditions_formset = context['postconditions_formset']
         steps_formset = context['steps_formset']
         revision_form = context['revision_form']
-        correctiveactions_formset = context['correctiveactions_formset']
         preconditions_formset.clean()
         if form.is_valid() and \
             preconditions_formset.is_valid() and \
             postconditions_formset.is_valid() and \
             steps_formset.is_valid() and \
-            revision_form.is_valid() and \
-            correctiveactions_formset.is_valid():
+            revision_form.is_valid():
 
             self.object = form.save()
             preconditions = preconditions_formset.save(commit=False)
@@ -165,10 +149,6 @@ class TestCaseUpdateView(UpdateView):
             revision.test_case = self.object
             revision.user = self.request.user
             revision.save()
-            correctiveactions = correctiveactions_formset.save(commit=False)
-            for c in correctiveactions:
-                c.test_case = self.object
-                c.save()
             messages.success(self.request, _('Test Case updated'))
             return HttpResponseRedirect(self.get_success_url())
         else:
