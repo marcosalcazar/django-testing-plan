@@ -1,0 +1,118 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Marcos Gabriel Alcazar <marcos.alcazar@gmail.com>, 2013.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-06-12 09:29-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\models.py:10
+msgid "Functional"
+msgstr "Funcional"
+
+#: .\models.py:11
+msgid "Usability"
+msgstr "Usabilidad"
+
+#: .\models.py:12
+msgid "Reliability"
+msgstr "Fiabilidad"
+
+#: .\models.py:13
+msgid "Performance"
+msgstr "Rendimiento"
+
+#: .\models.py:14
+msgid "Supportability"
+msgstr "Soporte"
+
+#: .\models.py:15
+msgid "(+) Implementation"
+msgstr "Implementacion"
+
+#: .\models.py:16
+msgid "(+) Interfaces (Not GUI)"
+msgstr "(+) Interfaces (No GUI)"
+
+#: .\models.py:17
+msgid "(+) Operations"
+msgstr "(+) Operaciones"
+
+#: .\models.py:18
+msgid "(+) Packaging"
+msgstr "(+) Empaquetamiento"
+
+#: .\models.py:19
+msgid "(+) Legals"
+msgstr "(+) Legales"
+
+#: .\models.py:22
+msgid "Requirement Type"
+msgstr "Tipo de Requerimiento"
+
+#: .\models.py:25
+msgid "Name"
+msgstr "Nombre"
+
+#: .\models.py:26
+msgid "Objective"
+msgstr "Objetivo"
+
+#: .\models.py:27
+msgid "Responsible"
+msgstr "Responsable"
+
+#: .\models.py:44 .\models.py:54 .\models.py:65 .\models.py:73 .\models.py:79
+msgid "Description"
+msgstr "Descripcion"
+
+#: .\models.py:64
+msgid "User"
+msgstr "Usuario"
+
+#: .\models.py:66
+msgid "Date"
+msgstr "Fecha"
+
+#: .\models.py:72 .\models.py:78
+msgid "Step number"
+msgstr "Numero de Paso"
+
+#: .\models.py:77
+msgid "Step"
+msgstr "Paso"
+
+#: .\tables.py:8
+msgid "Number of Test Cases"
+msgstr "Cantidad de Casos de Prueba"
+
+#: .\tables.py:10
+msgid "Actions"
+msgstr "Acciones"
+
+#: .\views.py:20
+msgid "Requirement created"
+msgstr "Requerimiento creado"
+
+#: .\views.py:29
+msgid "Requirement updated"
+msgstr "Requerimiento actualizado"
+
+#: .\templates\requirements\requirement_form.html.py:4
+msgid "Requirement"
+msgstr "Requerimiento"
+
+#: .\templates\requirements\requirement_list.html.py:4
+msgid "Requirements"
+msgstr "Requerimientos"

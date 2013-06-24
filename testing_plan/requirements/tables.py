@@ -12,3 +12,4 @@ class RequirementTable(tables.Table):
     class Meta:
         model = Requirement
         attrs = {"class": "table table-bordered table-hover"}
+        exclude = ('objective', )

@@ -64,7 +64,7 @@ class TestCaseCreateView(CreateView):
         steps_formset = context['steps_formset']
         revision_form = context['revision_form']
         correctiveactions_formset = context['correctiveactions_formset']
-        preconditions_formset.clean()
+
         if form.is_valid() and \
             preconditions_formset.is_valid() and \
             postconditions_formset.is_valid() and \
@@ -130,6 +130,7 @@ class TestCaseUpdateView(UpdateView):
         return context
     
     def post(self, request, *args, **kwargs):
+        print "post"
         self.object = self.get_object()
         form_class = self.get_form_class()
         form = self.get_form(form_class)
