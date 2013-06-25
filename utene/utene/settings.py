@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*- 
-# Django settings for testing_plan project.
+# Django settings for utene project.
 import os
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
 
@@ -67,7 +67,7 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    os.path.join(PROJECT_PATH, "testing_plan", "static"),
+    os.path.join(PROJECT_PATH, "utene", "static"),
 )
 
 # List of finder classes that know how to find static files in
@@ -103,13 +103,13 @@ MIDDLEWARE_CLASSES = (
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'testing_plan.urls'
+ROOT_URLCONF = 'utene.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'testing_plan.wsgi.application'
+WSGI_APPLICATION = 'utene.wsgi.application'
 
 TEMPLATE_DIRS = (
-    os.path.join(PROJECT_PATH, "testing_plan", "templates"),
+    os.path.join(PROJECT_PATH, "utene", "templates"),
 )
 
 INSTALLED_APPS = (
@@ -130,7 +130,7 @@ INSTALLED_APPS = (
     'django_tables2',
 
     'requirements',
-    'testing_plan',
+    'utene',
     'testing',
     'user',
 )
