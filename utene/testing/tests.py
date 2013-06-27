@@ -1,38 +1,52 @@
 from django.test import LiveServerTestCase
-from selenium.webdriver.firefox.webdriver import WebDriver
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
 
 
-class BaseTestCase(LiveServerTestCase):
+class PollsTest(LiveServerTestCase):
 
-    @classmethod
-    def setUpClass(cls):
-        cls.driver = WebDriver()
-        super(BaseTestCase, cls).setUpClass()
+    def setUp(self):
+        self.browser = webdriver.Firefox()
+        self.browser.implicitly_wait(3)
 
-    @classmethod
-    def tearDownClass(cls):
-        super(BaseTestCase, cls).tearDownClass()
-        cls.driver.quit()
+    def tearDown(self):
+        self.browser.quit()
+        
+    def _logged_session(f):
+        def do(self):
+            #login
+            self.browser.get(self.live_server_url)
+            username_field = self.browser.find_element_by_name('username')
+            username_field.send_keys('testuser')
+            password_field = self.browser.find_element_by_name('password')
+            password_field.send_keys('testuser')
+            password_field.send_keys(Keys.RETURN)
+            
+            #function execution
+            ret = f(self)
+            
+            #logout
+            self.browser.get(self.live_server_url + '/accounts/logout/')
+            body = self.browser.find_element_by_tag_name('body')
+            self.assertIn('You are logged out', body.text)
+            return ret
+
+        return do
 
 
-class TestCasesTestCase(BaseTestCase):
+    @_logged_session
+    def test_can_create_testcase(self):
+        # Gertrude opens her web browser, and goes to the admin page
+        self.browser.get(self.live_server_url + '/testing/test_cases/')
+
+        # She sees the familiar 'Django administration' heading
+        body = self.browser.find_element_by_tag_name('body')
+        self.assertIn('Test Cases', body.text)
     
-    fixtures = 'test_data.json'
-
-    def test(self):
-        self.driver.get(self.live_server_url)
-
-    def test_case_create(self):
-        self.driver.get(self.live_server_url + '/polls/')
-        poll = self.driver.find_element_by_link_text('ShiningPanda is a...')
-        poll.click()
-        time.sleep(2)    # Should use accurate WebDriverWait
-        choices = self.driver.find_elements_by_name('choice')
-        self.assertEquals(3, len(choices))
-        choices[2].click()
-        choices[2].submit()
-        lis = self.driver.find_elements_by_tag_name('li')
-        self.assertEquals(3, len(lis))
-        self.assertEquals('Hosted CI service? -- 0 votes', lis[0].text)
-        self.assertEquals('Consulting firm? -- 0 votes', lis[1].text)
-        self.assertEquals('Both! -- 1 vote', lis[2].text)
+    def test_can_modify_testcase(self):
+        # TODO: modify testcase test
+        pass
+    
+    def test_can_delete_testcase(self):
+        # TODO: delete testcase
+        pass
