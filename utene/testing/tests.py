@@ -3,7 +3,9 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
 
-class PollsTest(LiveServerTestCase):
+class TestingTests(LiveServerTestCase):
+    
+    fixtures = ['utene/fixtures/test_data.json']
 
     def setUp(self):
         self.browser = webdriver.Firefox()
@@ -42,7 +44,32 @@ class PollsTest(LiveServerTestCase):
         # She sees the familiar 'Django administration' heading
         body = self.browser.find_element_by_tag_name('body')
         self.assertIn('Test Cases', body.text)
-    
+        
+        #Click to link to create a new test case
+        self.browser.find_element_by_id('create_link').click()
+        
+        # TEXT FIELDS: Titulo, objetivo, tiempo estimado,
+        #              pre-post-condiciones, steps
+        self.browser.find_element_by_name('title').send_keys('Test Case for testing')
+        self.browser.find_element_by_name('title').send_keys('This is my objective')
+        self.browser.find_element_by_name('estimated_execution_time').send_keys(60)
+        self.browser.find_element_by_name('preconditions-0-description').send_keys("First Pre-Condition")
+        self.browser.find_element_by_name('postconditions-0-description').send_keys("First Post-Condition")
+        self.browser.find_element_by_name('steps-0-step_number').send_keys(1)
+        self.browser.find_element_by_name('steps-0-step_action').send_keys("First Step Action")
+        self.browser.find_element_by_name('steps-0-step_expected_result').send_keys("First Step Expected Result")
+        self.browser.find_element_by_name('description').send_keys("Revision Desripcion")
+        
+        self.browser.find_element_by_xpath("//select[@name='test_case_type']/option[value()='U']").click()
+        self.browser.find_element_by_xpath("//select[@name='requirement']/option[text()='Requirement Test']").click()
+        self.browser.find_element_by_xpath("//select[@name='execution_type']/option[value()='A']").click()
+        
+        self.browser.find_element_by_id('submit').click()
+        
+        body = self.browser.find_element_by_tag_name('body')
+        self.assertIn('Test Case for testing', body.text)
+        
+
     def test_can_modify_testcase(self):
         # TODO: modify testcase test
         pass
