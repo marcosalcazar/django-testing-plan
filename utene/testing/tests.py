@@ -3,6 +3,31 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
 
+def _logged_session(f):
+    def do(self):
+        #login
+        self.browser.get(self.live_server_url)
+        username_field = self.browser.find_element_by_name('username')
+        username_field.send_keys('testuser')
+        password_field = self.browser.find_element_by_name('password')
+        password_field.send_keys('testuser')
+        password_field.send_keys(Keys.RETURN)
+        
+        body = self.browser.find_element_by_tag_name('body')
+        self.assertIn('', body.text)
+        
+        #function execution
+        ret = f(self)
+        
+        #logout
+        self.browser.get(self.live_server_url + '/accounts/logout/')
+        body = self.browser.find_element_by_tag_name('body')
+        self.assertIn('You are logged out', body.text)
+        return ret
+
+    return do
+
+
 class TestingTests(LiveServerTestCase):
     
     fixtures = ['utene/fixtures/test_data.json']
@@ -13,31 +38,9 @@ class TestingTests(LiveServerTestCase):
 
     def tearDown(self):
         self.browser.quit()
-        
-    def _logged_session(f):
-        def do(self):
-            #login
-            self.browser.get(self.live_server_url)
-            username_field = self.browser.find_element_by_name('username')
-            username_field.send_keys('testuser')
-            password_field = self.browser.find_element_by_name('password')
-            password_field.send_keys('testuser')
-            password_field.send_keys(Keys.RETURN)
-            
-            #function execution
-            ret = f(self)
-            
-            #logout
-            self.browser.get(self.live_server_url + '/accounts/logout/')
-            body = self.browser.find_element_by_tag_name('body')
-            self.assertIn('You are logged out', body.text)
-            return ret
-
-        return do
-
-
+    
     @_logged_session
-    def test_can_create_testcase(self):
+    def test_01_can_create_testcase(self):
         # Gertrude opens her web browser, and goes to the admin page
         self.browser.get(self.live_server_url + '/testing/test_cases/')
 
@@ -69,11 +72,36 @@ class TestingTests(LiveServerTestCase):
         body = self.browser.find_element_by_tag_name('body')
         self.assertIn('Test Case for testing', body.text)
         
-
-    def test_can_modify_testcase(self):
-        # TODO: modify testcase test
-        pass
     
-    def test_can_delete_testcase(self):
-        # TODO: delete testcase
-        pass
+    @_logged_session
+    def test_02_can_modify_testcase(self):
+        self.browser.get(self.live_server_url + '/testing/test_cases/')
+
+        # She sees the familiar 'Django administration' heading
+        body = self.browser.find_element_by_tag_name('body')
+        self.assertIn('Test Cases', body.text)
+        
+        #Click to link to create a new test case
+        self.browser.find_element_by_id('modify_1').click()
+        
+        self.browser.find_element_by_id('submit').click()
+        
+        body = self.browser.find_element_by_tag_name('body')
+        self.assertIn('Test Case for testing', body.text)
+
+    
+    @_logged_session
+    def test_03_can_delete_testcase(self):
+        self.browser.get(self.live_server_url + '/testing/test_cases/')
+
+        # She sees the familiar 'Django administration' heading
+        body = self.browser.find_element_by_tag_name('body')
+        self.assertIn('Test Cases', body.text)
+        
+        #Click to link to create a new test case
+        self.browser.find_element_by_id('modify_1').click()
+        
+        self.browser.find_element_by_id('submit').click()
+        
+        body = self.browser.find_element_by_tag_name('body')
+        self.assertIn('Test Case for testing', body.text)

@@ -116,7 +116,6 @@ class TestCaseUpdateView(UpdateView):
         return context
     
     def post(self, request, *args, **kwargs):
-        print "post"
         self.object = self.get_object()
         form_class = self.get_form_class()
         form = self.get_form(form_class)
@@ -158,6 +157,7 @@ class TestCaseUpdateView(UpdateView):
 class TestCaseDeleteView(DeleteView):
     model = TestCase
     success_url = reverse_lazy("testing:testcases")
+    template_name = '__confirm_delete.html'
 
 
 def _generate_pdf(html):

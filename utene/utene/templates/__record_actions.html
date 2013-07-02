@@ -1,3 +1,3 @@
 {% load i18n %}
-<a href="{{ record.get_absolute_url }}" class="btn">{% trans "Modify" %}</a> 
-<a href="{{ record.get_absolute_delete_url }}" class="btn">{% trans "Delete" %}</a>
+<a href="{{ record.get_absolute_url }}" class="btn" id="modify_{{ record.pk }}">{% trans "Modify" %}</a> 
+<a href="{{ record.get_absolute_delete_url }}" class="btn" id="delete_{{ record.pk }}">{% trans "Delete" %}</a>
