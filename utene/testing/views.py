@@ -4,7 +4,7 @@ from django.http.response import HttpResponse, HttpResponseRedirect
 from django.template.context import RequestContext
 from django.template.loader import render_to_string
 from django.utils.translation import ugettext as _
-from django.views.generic.base import View
+from django.views.generic.base import View, TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django_tables2.views import SingleTableView
 from ho import pisa
@@ -168,17 +168,54 @@ def _generate_pdf(html):
     return HttpResponse(_('Error while creating the PDF file: %s' % cgi.escape(html)))
  
  
-class TestCasesReportView(View):
-    template_name = 'testing/test_cases_report.html'
-     
-    def get(self, request, *args, **kwargs):
-        data = dict(
-            test_cases = TestCase.objects.all(),
-            pagesize = 'A4',
+class TestCasesReportView(TemplateView):
+    template_name = 'testing/test_cases_report_options.html'
+    
+    def get_context_data(self, **kwargs):
+        c = TemplateView.get_context_data(self, **kwargs)
+        c['report_types'] = (
+            ('PDF', 'PDF'),
+            ('HTML', 'HTML')
         )
-        html = render_to_string(
-            self.template_name, data, context_instance=RequestContext(request))
-        return _generate_pdf(html)
+        c['TEST_CASE_TYPES'] = TestCase.TEST_CASE_TYPES
+        c['EXECUTION_TYPES'] = TestCase.EXECUTION_TYPES
+        return c
+    
+    def post(self, request, *args, **kwargs):
+        #get values from POST
+        report_type = request.POST.get('report_type')
+        test_case_type = request.POST.get('test_case_type', None)
+        execution_type = request.POST.get('execution_type', None)
+        
+        #Clean data
+        if test_case_type == u"": test_case_type = None
+        if execution_type == u"": execution_type = None
+        
+        #Change the template_name value for the real report template
+        self.template_name = 'testing/test_cases_report.html'
+        
+        #Get the query
+        q = TestCase.objects
+        if test_case_type:
+            q = q.filter(test_case_type=test_case_type)
+        if execution_type:
+            q = q.filter(execution_type=execution_type)
+        
+        #Finally get the objects
+        test_cases = q.all()
+
+        if report_type == 'HTML':
+            context = self.get_context_data(**kwargs)
+            context['test_cases'] = test_cases
+            return self.render_to_response(context) 
+        elif report_type == 'PDF':
+            data = dict(
+                test_cases = test_cases,
+                pagesize = 'A4',
+            )
+            html = render_to_string(
+                self.template_name, data, context_instance=RequestContext(request))
+            return _generate_pdf(html)
 
 
 # class TestCasesReportView(View):
