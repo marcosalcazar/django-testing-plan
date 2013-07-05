@@ -1,0 +1,43 @@
+{% extends '__form.html' %}
+{% load i18n %}
+
+{% block title %}{% trans 'Test Cases Report Options' %}{% endblock %}
+
+{% block content %}
+<form method="post">
+	{% csrf_token %}
+	<div class="row">
+		<div class="span12">
+			<h3>{% trans 'Report Type' %}</h3>
+			<select name="report_type">
+				{% for t in report_types %}
+				<option value="{{ t.0 }}">{{ t.1 }}</option>
+				{% endfor %}
+			</select>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span12">
+			<h3>{% trans 'Test Case Type' %}</h3>
+			<select name="test_case_type">
+				<option value="">--</option>
+				{% for t in TEST_CASE_TYPES %}
+				<option value="{{ t.0 }}">{{ t.1 }}</option>
+				{% endfor %}
+			</select>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span12">
+			<h3>{% trans 'Execution Type' %}</h3>
+			<select name="execution_type">
+				<option value="">--</option>
+				{% for t in EXECUTION_TYPES %}
+				<option value="{{ t.0 }}">{{ t.1 }}</option>
+				{% endfor %}
+			</select>
+		</div>
+	</div>
+	<input type="submit" id="submit" />
+</form>
+{% endblock %}
