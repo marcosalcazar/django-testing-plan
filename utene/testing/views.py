@@ -59,7 +59,7 @@ class TestCaseCreateView(CreateView):
         postconditions_formset = context['postconditions_formset']
         steps_formset = context['steps_formset']
         revision_form = context['revision_form']
-        preconditions_formset.clean()
+
         if form.is_valid() and \
             preconditions_formset.is_valid() and \
             postconditions_formset.is_valid() and \
@@ -157,6 +157,7 @@ class TestCaseUpdateView(UpdateView):
 class TestCaseDeleteView(DeleteView):
     model = TestCase
     success_url = reverse_lazy("testing:testcases")
+    template_name = '__confirm_delete.html'
 
 
 def _generate_pdf(html):

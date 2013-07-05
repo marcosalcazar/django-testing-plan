@@ -1,38 +1,107 @@
 from django.test import LiveServerTestCase
-from selenium.webdriver.firefox.webdriver import WebDriver
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
 
 
-class BaseTestCase(LiveServerTestCase):
+def _logged_session(f):
+    def do(self):
+        #login
+        self.browser.get(self.live_server_url)
+        username_field = self.browser.find_element_by_name('username')
+        username_field.send_keys('testuser')
+        password_field = self.browser.find_element_by_name('password')
+        password_field.send_keys('testuser')
+        password_field.send_keys(Keys.RETURN)
+        
+        body = self.browser.find_element_by_tag_name('body')
+        self.assertIn('', body.text)
+        
+        #function execution
+        ret = f(self)
+        
+        #logout
+        self.browser.get(self.live_server_url + '/accounts/logout/')
+        body = self.browser.find_element_by_tag_name('body')
+        self.assertIn('You are logged out', body.text)
+        return ret
 
-    @classmethod
-    def setUpClass(cls):
-        cls.driver = WebDriver()
-        super(BaseTestCase, cls).setUpClass()
-
-    @classmethod
-    def tearDownClass(cls):
-        super(BaseTestCase, cls).tearDownClass()
-        cls.driver.quit()
+    return do
 
 
-class TestCasesTestCase(BaseTestCase):
+class TestingTests(LiveServerTestCase):
     
-    fixtures = 'test_data.json'
+    fixtures = ['utene/fixtures/test_data.json']
 
-    def test(self):
-        self.driver.get(self.live_server_url)
+    def setUp(self):
+        self.browser = webdriver.Firefox()
+        self.browser.implicitly_wait(3)
 
-    def test_case_create(self):
-        self.driver.get(self.live_server_url + '/polls/')
-        poll = self.driver.find_element_by_link_text('ShiningPanda is a...')
-        poll.click()
-        time.sleep(2)    # Should use accurate WebDriverWait
-        choices = self.driver.find_elements_by_name('choice')
-        self.assertEquals(3, len(choices))
-        choices[2].click()
-        choices[2].submit()
-        lis = self.driver.find_elements_by_tag_name('li')
-        self.assertEquals(3, len(lis))
-        self.assertEquals('Hosted CI service? -- 0 votes', lis[0].text)
-        self.assertEquals('Consulting firm? -- 0 votes', lis[1].text)
-        self.assertEquals('Both! -- 1 vote', lis[2].text)
+    def tearDown(self):
+        self.browser.quit()
+    
+    @_logged_session
+    def test_01_can_create_testcase(self):
+        # Gertrude opens her web browser, and goes to the admin page
+        self.browser.get(self.live_server_url + '/testing/test_cases/')
+
+        # She sees the familiar 'Django administration' heading
+        body = self.browser.find_element_by_tag_name('body')
+        self.assertIn('Test Cases', body.text)
+        
+        #Click to link to create a new test case
+        self.browser.find_element_by_id('create_link').click()
+        
+        # TEXT FIELDS: Titulo, objetivo, tiempo estimado,
+        #              pre-post-condiciones, steps
+        self.browser.find_element_by_name('title').send_keys('Test Case for testing')
+        self.browser.find_element_by_name('title').send_keys('This is my objective')
+        self.browser.find_element_by_name('estimated_execution_time').send_keys(60)
+        self.browser.find_element_by_name('preconditions-0-description').send_keys("First Pre-Condition")
+        self.browser.find_element_by_name('postconditions-0-description').send_keys("First Post-Condition")
+        self.browser.find_element_by_name('steps-0-step_number').send_keys(1)
+        self.browser.find_element_by_name('steps-0-step_action').send_keys("First Step Action")
+        self.browser.find_element_by_name('steps-0-step_expected_result').send_keys("First Step Expected Result")
+        self.browser.find_element_by_name('description').send_keys("Revision Desripcion")
+        
+        self.browser.find_element_by_xpath("//select[@name='test_case_type']/option[value()='U']").click()
+        self.browser.find_element_by_xpath("//select[@name='requirement']/option[text()='Requirement Test']").click()
+        self.browser.find_element_by_xpath("//select[@name='execution_type']/option[value()='A']").click()
+        
+        self.browser.find_element_by_id('submit').click()
+        
+        body = self.browser.find_element_by_tag_name('body')
+        self.assertIn('Test Case for testing', body.text)
+        
+    
+    @_logged_session
+    def test_02_can_modify_testcase(self):
+        self.browser.get(self.live_server_url + '/testing/test_cases/')
+
+        # She sees the familiar 'Django administration' heading
+        body = self.browser.find_element_by_tag_name('body')
+        self.assertIn('Test Cases', body.text)
+        
+        #Click to link to create a new test case
+        self.browser.find_element_by_id('modify_1').click()
+        
+        self.browser.find_element_by_id('submit').click()
+        
+        body = self.browser.find_element_by_tag_name('body')
+        self.assertIn('Test Case for testing', body.text)
+
+    
+    @_logged_session
+    def test_03_can_delete_testcase(self):
+        self.browser.get(self.live_server_url + '/testing/test_cases/')
+
+        # She sees the familiar 'Django administration' heading
+        body = self.browser.find_element_by_tag_name('body')
+        self.assertIn('Test Cases', body.text)
+        
+        #Click to link to create a new test case
+        self.browser.find_element_by_id('modify_1').click()
+        
+        self.browser.find_element_by_id('submit').click()
+        
+        body = self.browser.find_element_by_tag_name('body')
+        self.assertIn('Test Case for testing', body.text)

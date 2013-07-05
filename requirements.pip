@@ -6,4 +6,6 @@ html5lib #for pisa
 django-htauth
 South
 django_tables2
-django-selenium
+selenium
+mock
+unittest2

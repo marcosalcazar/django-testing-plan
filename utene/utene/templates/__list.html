@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load i18n %}
 
-{% block title %}{% block title_entities %}{% endblock %} <a href="{% block url_new %}{% endblock %}">{% trans "New" %}</a>{% endblock %}
+{% block title %}{% block title_entities %}{% endblock %} <a href="{% block url_new %}{% endblock %}" id="create_link">{% trans "New" %}</a>{% endblock %}
 
 {% block content %}
 {{ block.super }}

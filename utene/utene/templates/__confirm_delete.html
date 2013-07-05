@@ -7,7 +7,7 @@
 </p>
 <form method="POST" action="{{ object.get_absolute_delete_url }}">
 	{% csrf_token %}
-	<button class="btn btn-danger">
+	<button class="btn btn-danger" id="submit">
 		{% trans 'Yes' %}
 	</button>
 </form>

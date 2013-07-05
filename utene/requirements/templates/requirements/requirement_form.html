@@ -1,4 +1,176 @@
 {% extends '__form.html' %}
 {% load i18n %}
+{% load widget_tweaks %}
 
 {% block title_entity %}{% trans 'Requirement' %}{% endblock %}
+
+{% block extra_js %}
+{{ block.super }}
+<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.flexibleArea.js"></script>
+<script>
+	$(document).ready(function(){
+		$("textarea").flexible();
+		
+		$('#preconditions tbody tr').formset({
+			prefix: '{{ preconditions_formset.prefix }}',
+			addText: '{% trans "add another" %}',
+			deleteText: '{% trans "remove" %}'
+		});
+		
+		$('#postconditions tbody tr').formset({
+			prefix: '{{ postconditions_formset.prefix }}',
+			addText: '{% trans "add another" %}',
+			deleteText: '{% trans "remove" %}'
+		});
+		
+		$('#steps > tbody > tr').formset({
+			prefix: '{{ steps_formset.prefix }}',
+			addText: '{% trans "add another" %}',
+			deleteText: '{% trans "remove" %}'
+		});
+		
+		$(".add_alternative").click(function(e){
+			e.preventDefault();
+			var h = $("<input />");
+			h.attr("type", "hidden");
+			h.attr("name", "next");
+			h.attr("value", $(this).attr("href"))
+			var f = $("#main_form");
+			f.append(h);
+		    f.submit();
+		});
+
+	});
+</script>
+{% endblock %}
+
+{% block content %}
+<form method="post" action="{% block action %}{% endblock %}" id="main_form">
+	{% csrf_token %}
+	<div class="row">
+		<div class="span4">
+			<h3>{% trans 'General Information' %}</h3>
+			{{ form.as_p }}
+		</div>
+		<div class="span8">
+			<h3>{% trans "Pre-Conditions" %}</h3>
+			<div>
+				{{ preconditions_formset.management_form }}
+				{{ preconditions_formset.non_form_errors }}
+				<table id="preconditions" class='table table-condensed'>
+					<thead>
+						{% with preconditions_formset.forms|first as pc %}
+						<tr>
+							<td>{{ pc.description.label }}</td>
+							<td>{{ pc.DELETE.label }}</td>
+						</tr>
+						{% endwith %}
+					</thead>
+					<tbody>
+						{% for subform in preconditions_formset.forms %}
+						<tr>
+							<td>{% render_field subform.description class+='span6' %}{{ subform.description.errors }}</td>
+							<td>
+								{{ subform.DELETE }}{{ subform.DELETE.errors }}
+								{% for h in subform.hidden_fields %}
+								{{ h }}
+								{% endfor %}
+							</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+			<h3>{% trans "Post-Conditions" %}</h3>
+			<div>
+				{{ postconditions_formset.management_form }}
+				<table id="postconditions" class='table table-condensed'>
+					<thead>
+						{% with postconditions_formset.forms|first as pc %}
+						<tr>
+							<td>{{ pc.description.label }}</td>
+							<td>{{ pc.DELETE.label }}</td>
+						</tr>
+						{% endwith %}
+					</thead>
+					<tbody>
+						{% for subform in postconditions_formset.forms %}
+						<tr>
+							<td>{% render_field subform.description class+='span6' %}{{ subform.description.errors }}</td>
+							<td>
+								{{ subform.DELETE }}{{ subform.DELETE.errors }}
+								{% for h in subform.hidden_fields %}
+								{{ h }}
+								{% endfor %}
+							</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span12">
+			<h3>{% trans "Basic path" %}</h3>
+			<div>
+				{{ steps_formset.management_form }}
+				<table id="steps" class='table table-condensed'>
+					<thead>
+						{% with steps_formset.forms|first as pc %}
+						<tr>
+							<td>{{ pc.step_number.label }}</td>
+							<td>{{ pc.step_description.label }}</td>
+							<td>{{ pc.DELETE.label }}</td>
+						</tr>
+						{% endwith %}
+					</thead>
+					<tbody>
+						{% for subform in steps_formset.forms %}
+						<tr>
+							<td>{% render_field subform.step_number class+='span1' %}{{ subform.step_number.errors }}</td>
+							<td>
+								{% render_field subform.description class+='span5' rows=3 %}{{ subform.description.errors }}<br>
+								{% if subform.instance.pk %}
+									<table class="alternatives" width="100%">
+										<caption>Alternative steps</caption>
+										<tbody>
+											{% for alt in subform.instance.alternatives.all %}
+											<tr>
+												<td>{{ alt }}</td>
+												<td style="text-align: right;">
+													<a href="">{% trans 'Modify' %}</a>
+													<a href="">{% trans 'Delete' %}</a>
+												</td>
+											</tr>
+											{% endfor %}
+										</tbody>
+										<tfoot>
+											<tr>
+												<td colspan="2">
+													<a href="{% url 'requirements:alternative_create' step_pk=subform.instance.pk %}"
+													   class="add_alternative">
+														{% trans 'Add alternative path for step' %}
+													</a>
+												</td>
+											</tr>
+										</tfoot>
+									</table>
+								{% endif %}
+							</td>
+							<td>
+								{{ subform.DELETE }}{{ subform.DELETE.errors }}
+								{% for h in subform.hidden_fields %}
+								{{ h }}
+								{% endfor %}
+							</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<input type="submit" id="go" />
+</form>
+{% endblock %}

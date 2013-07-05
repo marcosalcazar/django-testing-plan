@@ -1,0 +1,52 @@
+{% extends '__form.html' %}
+{% load i18n %}
+{% load widget_tweaks %}
+
+{% block title_entity %}{% trans "Alternate Path "%} for <i>{{ step }}</i>{% endblock %}
+
+{% block extra_js %}
+{{ block.super }}
+<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.flexibleArea.js"></script>
+<script>
+	$(document).ready(function(){
+		$('#steps tbody tr').formset({
+			prefix: '{{ preconditions_formset.prefix }}',
+			addText: '{% trans "add another" %}',
+			deleteText: '{% trans "remove" %}'
+		});
+	});
+</script>
+{% endblock %}
+
+{% block extra_form %}
+<h3>{% trans "Steps" %}</h3>
+<div>
+	{{ formset.management_form }}
+	{{ formset.non_form_errors }}
+	<table id="steps" class='table table-condensed'>
+		<thead>
+			{% with formset.forms|first as pc %}
+			<tr>
+				<td>{{ pc.step_number.label }}</td>
+				<td>{{ pc.description.label }}</td>
+				<td>{{ pc.DELETE.label }}</td>
+			</tr>
+			{% endwith %}
+		</thead>
+		<tbody>
+			{% for subform in formset.forms %}
+			<tr>
+				<td>{% render_field subform.step_number class+='span1' %}{{ subform.step_number.errors }}</td>
+				<td>{% render_field subform.description class+='span5' rows=3 %}{{ subform.description.errors }}</td>
+				<td>
+					{{ subform.DELETE }}{{ subform.DELETE.errors }}
+					{% for h in subform.hidden_fields %}
+					{{ h }}
+					{% endfor %}
+				</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+{% endblock %}
