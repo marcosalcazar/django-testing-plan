@@ -1,0 +1,12 @@
+{% extends '__form.html' %}
+
+{% block content %}
+{{ block.super }}
+<script>
+	$(function() {
+		$("#id_start_date,#id_end_date").datepicker({
+			'dateFormat': 'dd/mm/yy'
+		});
+	}); 
+</script>
+{% endblock %}

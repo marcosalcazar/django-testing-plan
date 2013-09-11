@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-11 14:47-0300\n"
+"POT-Creation-Date: 2013-09-11 10:54-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -58,18 +58,26 @@ msgid "Requirements"
 msgstr "Requerimientos"
 
 #: .\templates\base.html.py:41
+msgid "Quality"
+msgstr "Calidad"
+
+#: .\templates\base.html.py:44
 msgid "Test Cases"
 msgstr "Casos de Prueba"
 
-#: .\templates\base.html.py:44
+#: .\templates\base.html.py:47
+msgid "Testing plans"
+msgstr "Planes de Pruebas"
+
+#: .\templates\base.html.py:50
 msgid "Test Cases Report"
 msgstr "Reporte de Casos de Prueba"
 
-#: .\templates\base.html.py:66
+#: .\templates\base.html.py:74
 msgid "Profile"
 msgstr "Perfil"
 
-#: .\templates\base.html.py:69
+#: .\templates\base.html.py:77
 msgid "Log Out"
 msgstr "Salir"
 

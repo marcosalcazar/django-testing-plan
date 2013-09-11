@@ -11,10 +11,11 @@ from ho import pisa
 from testing.forms import TestCasePreConditionFormSet, \
     TestCasePostConditionFormSet, TestCaseStepFormSet, TestCaseRevisionForm, \
     TestCaseForm
-from testing.models import TestCase
-from testing.tables import TestCaseTable
+from testing.models import TestCase, TestPlan
+from testing.tables import TestCaseTable, TestPlanTable
 import StringIO
 import cgi
+from django.views.generic.list import ListView
 #from relatorio.templates.opendocument import Template
 #from django.conf import settings
 #import os
@@ -219,16 +220,11 @@ class TestCasesReportDoView(TemplateView):
             return _generate_pdf(html)
 
 
-# class TestCasesReportView(View):
-#     
-#     def get(self, request, *args, **kwargs):
-#         test_cases = TestCase.objects.all().values()
-#         print test_cases
-#         templateFilePath = os.path.join(settings.PROJECT_PATH, 'testing', 'reports', 'testcases_skeleton.odt')
-#         report = Template(source=open(templateFilePath,'r'),
-#                           filepath=templateFilePath)
-#         response = HttpResponse(
-#             report.generate(test_cases=test_cases).render().getvalue(), 
-#             mimetype='application/pdf')
-#         response['Content-Disposition'] = 'attachment; filename="TestCasesReport.pdf"'
-#         return response
+class TestPlanListView(SingleTableView):
+    model = TestPlan
+    table_class = TestPlanTable
+
+
+class TestPlanCreateView(CreateView):
+    model = TestPlan
+    success_url = reverse_lazy("testing:testingplan")

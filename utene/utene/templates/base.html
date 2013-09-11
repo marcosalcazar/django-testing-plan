@@ -37,11 +37,19 @@
 							<li>
 								<a href="{% url 'requirements:requirements' %}">{% trans 'Requirements' %}</a>
 							</li>
-							<li>
-								<a href="{% url 'testing:testcases' %}">{% trans 'Test Cases' %}</a>
-							</li>
-							<li>
-								<a href="{% url 'testing:testcasesreports' %}">{% trans 'Test Cases Report' %}</a>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans 'Quality' %} <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li>
+										<a href="{% url 'testing:testcases' %}">{% trans 'Test Cases' %}</a>
+									</li>
+									<li>
+										<a href="{% url 'testing:testingplan' %}">{% trans 'Testing plans' %}</a>
+									</li>
+									<li>
+										<a href="{% url 'testing:testcasesreports' %}">{% trans 'Test Cases Report' %}</a>
+									</li>
+								</ul>
 							</li>
 						</ul>
 						<ul class='nav pull-right'>

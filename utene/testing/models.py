@@ -84,11 +84,10 @@ class TestCaseStep(models.Model):
     step_expected_result = models.TextField(_('Expected Result'))
 
 
-# class TestCaseCorrectiveAction(models.Model):
-# 
-#     test_case = models.ForeignKey(TestCase, related_name='corrective_actions')
-#     description = models.CharField(verbose_name=_('Description'), 
-#                                    max_length=255)
-#     
-#     def __unicode__(self):
-#         return self.description
+class TestPlan(models.Model):
+
+    name = models.CharField(_('Name'), max_length=255)
+    start_date = models.DateField(_('Start Date'))
+    end_date = models.DateField(_('End Date'))
+
+

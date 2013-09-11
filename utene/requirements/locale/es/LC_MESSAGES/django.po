@@ -8,83 +8,83 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-05 11:36-0300\n"
+"POT-Creation-Date: 2013-09-11 10:54-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Marcos Gabriel Alcazar <marcos.alcazar@gmail.com>\n"
-"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: models.py:9
+#: .\models.py:9
 msgid "Functional"
 msgstr "Funcional"
 
-#: models.py:10
+#: .\models.py:10
 msgid "Usability"
 msgstr "Usabilidad"
 
-#: models.py:11
+#: .\models.py:11
 msgid "Reliability"
 msgstr "Fiabilidad"
 
-#: models.py:12
+#: .\models.py:12
 msgid "Performance"
 msgstr "Rendimiento"
 
-#: models.py:13
+#: .\models.py:13
 msgid "Supportability"
 msgstr "Soporte"
 
-#: models.py:14
+#: .\models.py:14
 msgid "(+) Implementation"
 msgstr "(+) Implementacion"
 
-#: models.py:15
+#: .\models.py:15
 msgid "(+) Interfaces (Not GUI)"
 msgstr "(+) Interfaces (No GUI)"
 
-#: models.py:16
+#: .\models.py:16
 msgid "(+) Operations"
 msgstr "(+) Operaciones"
 
-#: models.py:17
+#: .\models.py:17
 msgid "(+) Packaging"
 msgstr "(+) Empaquetamiento"
 
-#: models.py:18
+#: .\models.py:18
 msgid "(+) Legals"
 msgstr "(+) Legales"
 
-#: models.py:21
+#: .\models.py:21
 msgid "Requirement Type"
 msgstr "Tipo de Requerimiento"
 
-#: models.py:24
+#: .\models.py:24
 msgid "Name"
 msgstr "Nombre"
 
-#: tables.py:8
+#: .\tables.py:8
 msgid "Number of Test Cases"
 msgstr "Numero de casos de prueba"
 
-#: tables.py:10
+#: .\tables.py:10
 msgid "Actions"
 msgstr "Acciones"
 
-#: views.py:20
+#: .\views.py:20
 msgid "Requirement created"
 msgstr "Requerimiento creado"
 
-#: views.py:29
+#: .\views.py:29
 msgid "Requirement updated"
 msgstr "Requerimiento actualizado"
 
-#: templates/requirements/requirement_form.html:4
+#: .\templates\requirements\requirement_form.html.py:4
 msgid "Requirement"
 msgstr "Requerimiento"
 
-#: templates/requirements/requirement_list.html:4
+#: .\templates\requirements\requirement_list.html.py:4
 msgid "Requirements"
 msgstr "Requerimientos"

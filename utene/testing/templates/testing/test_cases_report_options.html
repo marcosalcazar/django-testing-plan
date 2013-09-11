@@ -4,7 +4,7 @@
 {% block title %}{% trans 'Test Cases Report Options' %}{% endblock %}
 
 {% block content %}
-<form method="get" action="{% url 'testing:testcasesreportsdo' %}">
+<form method="get" action="{% url 'testing:testcasesreportsdo' %}" target="_blank">
 	{% csrf_token %}
 	<div class="row">
 		<div class="span12">
