@@ -4,7 +4,7 @@ from django.http.response import HttpResponse, HttpResponseRedirect
 from django.template.context import RequestContext
 from django.template.loader import render_to_string
 from django.utils.translation import ugettext as _
-from django.views.generic.base import TemplateView
+from django.views.generic.base import TemplateView, View
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django_tables2.views import SingleTableView
 from ho import pisa
@@ -15,11 +15,6 @@ from testing.models import TestCase, TestPlan
 from testing.tables import TestCaseTable, TestPlanTable
 import StringIO
 import cgi
-from django.views.generic.list import ListView
-#from relatorio.templates.opendocument import Template
-#from django.conf import settings
-#import os
-#from django.shortcuts import render_to_response
 
 
 class TestCaseListView(SingleTableView):
@@ -228,3 +223,13 @@ class TestPlanListView(SingleTableView):
 class TestPlanCreateView(CreateView):
     model = TestPlan
     success_url = reverse_lazy("testing:testingplan")
+
+
+class TestPlanUpdateView(UpdateView):
+    model = TestPlan
+    success_url = reverse_lazy("testing:testingplan")
+
+
+class TestPlanExecutionView(View):
+    pass
+

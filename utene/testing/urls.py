@@ -2,7 +2,8 @@ from django.conf.urls import patterns, url
 from django.contrib.auth.decorators import login_required
 from testing.views import TestCaseListView, TestCaseCreateView, \
     TestCaseUpdateView, TestCasesReportView, TestCaseDeleteView,\
-    TestCasesReportDoView, TestPlanListView, TestPlanCreateView
+    TestCasesReportDoView, TestPlanListView, TestPlanCreateView,\
+    TestPlanUpdateView, TestPlanExecutionView
 
 
 urlpatterns = patterns('testing.views',
@@ -14,8 +15,11 @@ urlpatterns = patterns('testing.views',
     
     url(r'testing_plan/$', login_required(TestPlanListView.as_view()), name='testingplan'),
     url(r'testing_plan/create/$', login_required(TestPlanCreateView.as_view()), name='testplan_create'),
+    url(r'testing_plan/update/(?P<pk>\d+)/$', login_required(TestPlanUpdateView.as_view()), name='testplan_update'),
 
     url(r'test_cases_report/$', login_required(TestCasesReportView.as_view()), name='testcasesreports'),
-    url(r'test_cases_report_do/$', login_required(TestCasesReportDoView.as_view()), name='testcasesreportsdo')
+    url(r'test_cases_report_do/$', login_required(TestCasesReportDoView.as_view()), name='testcasesreportsdo'),
+    
+    url(r'testing_plan_execution/$', login_required(TestPlanExecutionView.as_view()), name='testingplanexecution'),
 
 )

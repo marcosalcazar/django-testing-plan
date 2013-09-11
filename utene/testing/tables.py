@@ -18,7 +18,11 @@ class TestCaseTable(tables.Table):
 
 
 class TestPlanTable(tables.Table):
+    actions = tables.TemplateColumn(template_name='testing/__test_plan_actions.html',
+                                    sortable=False,
+                                    verbose_name=_("Actions"))
     
     class Meta:
         model = TestPlan
         attrs = {"class": "table table-bordered table-hover"}
+        sequence = ('id', 'name', 'start_date', 'end_date', 'actions')
