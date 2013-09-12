@@ -4,15 +4,16 @@ from django.http.response import HttpResponse, HttpResponseRedirect
 from django.template.context import RequestContext
 from django.template.loader import render_to_string
 from django.utils.translation import ugettext as _
-from django.views.generic.base import TemplateView, View
+from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django_tables2.views import SingleTableView
 from ho import pisa
 from testing.forms import TestCasePreConditionFormSet, \
     TestCasePostConditionFormSet, TestCaseStepFormSet, TestCaseRevisionForm, \
-    TestCaseForm
-from testing.models import TestCase, TestPlan
-from testing.tables import TestCaseTable, TestPlanTable
+    TestCaseForm, TestPlanExecutionForm
+from testing.models import TestCase, TestPlan, TestPlanExecution
+from testing.tables import TestCaseTable, TestPlanTable, \
+    TestCasesForPlanExecutionTable
 import StringIO
 import cgi
 
@@ -230,6 +231,30 @@ class TestPlanUpdateView(UpdateView):
     success_url = reverse_lazy("testing:testingplan")
 
 
-class TestPlanExecutionView(View):
-    pass
+class TestPlanExecutionView(SingleTableView):
+    model = TestCase
+    table_class = TestCasesForPlanExecutionTable
+    template_name = 'testing/test_plan_execution.html'
+    
+    def get_context_data(self, **kwargs):
+        c = SingleTableView.get_context_data(self, **kwargs)
+        c['plan'] = TestPlan.objects.get(pk=self.kwargs.get("plan_pk"))
+        return c
 
+
+class TestPlanExecutionCreateView(CreateView):
+    model = TestPlanExecution
+    form = TestPlanExecutionForm
+    
+    def get_initial(self):
+        initial = CreateView.get_initial(self)
+        initial['test_plan'] = TestPlan.objects.get(pk=self.kwargs['plan_pk'])
+        initial['test_case'] = TestCase.objects.get(pk=self.kwargs['testcase_pk'])
+        initial['qa_resource'] = self.request.user
+        return initial
+    
+    def get_success_url(self):
+        return reverse_lazy("testing:testingplanexecution", kwargs={
+            'plan_pk': self.kwargs.get("plan_pk")
+        })
+        return CreateView.get_success_url(self)

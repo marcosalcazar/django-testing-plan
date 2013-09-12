@@ -1,0 +1,6 @@
+{% load i18n %}
+<ul>
+	<li>
+		<a href="{% url 'testing:testplan_executetestcase' plan.pk record.pk %}">{% trans 'Execute Test Case' %}</a>
+	</li>
+</ul>

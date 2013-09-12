@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-11 15:59-0300\n"
+"POT-Creation-Date: 2013-09-12 16:59-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Marcos Gabriel Alcazar <marcos.alcazar@gmail.com>\n"
 "Language-Team: ES <marcos.alcazar@gmail.com>\n"
@@ -18,152 +18,160 @@ msgstr ""
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\models.py:12
+#: .\models.py:13
 msgid "Manual"
 msgstr ""
 
-#: .\models.py:13
+#: .\models.py:14
 msgid "Automated"
 msgstr "Automatizado"
 
-#: .\models.py:17
+#: .\models.py:18
 msgid "Unit"
 msgstr "Unidad"
 
-#: .\models.py:18
+#: .\models.py:19
 msgid "Integration"
 msgstr "Integracion"
 
-#: .\models.py:19
+#: .\models.py:20
 msgid "Security"
 msgstr "Seguridad"
 
-#: .\models.py:20
+#: .\models.py:21
 msgid "System"
 msgstr "Sistema"
 
-#: .\models.py:21
+#: .\models.py:22
 msgid "Acceptance"
 msgstr "Aceptacion"
 
-#: .\models.py:22
+#: .\models.py:23
 msgid "Load"
 msgstr "Carga"
 
-#: .\models.py:25
+#: .\models.py:26
 msgid "Title"
 msgstr "Titulo"
 
-#: .\models.py:26 .\templates\testing\test_cases_report.html.py:40
+#: .\models.py:27 .\templates\testing\test_cases_report.html.py:40
 msgid "Author"
 msgstr "Autor"
 
-#: .\models.py:27 .\templates\testing\test_cases_report.html.py:44
+#: .\models.py:28 .\templates\testing\test_cases_report.html.py:44
 msgid "Objective"
 msgstr "Objetivo"
 
-#: .\models.py:28
+#: .\models.py:29
 msgid "Type"
 msgstr "Tipo"
 
-#: .\models.py:32 .\templates\testing\test_cases_report.html.py:48
+#: .\models.py:33 .\templates\testing\test_cases_report.html.py:48
 msgid "Requirement"
 msgstr "Requerimiento"
 
-#: .\models.py:34 .\templates\testing\test_cases_report_options.html.py:32
+#: .\models.py:35 .\templates\testing\test_cases_report_options.html.py:32
 msgid "Execution Type"
 msgstr "Tipo de Ejecucion"
 
-#: .\models.py:38
+#: .\models.py:39
 msgid "Estimated Execution Time"
 msgstr "Tiempo Estimado de Ejecucion"
 
-#: .\models.py:55 .\models.py:65 .\models.py:76
+#: .\models.py:56 .\models.py:66 .\models.py:77
 #: .\templates\testing\test_cases_report.html.py:106
 #: .\templates\testing\testcase_form.html.py:145
 msgid "Description"
 msgstr "Descripcion"
 
-#: .\models.py:75 .\templates\testing\test_cases_report.html.py:104
+#: .\models.py:76 .\templates\testing\test_cases_report.html.py:104
 #: .\templates\testing\testcase_form.html.py:143
 msgid "User"
 msgstr "Usuario"
 
-#: .\models.py:77 .\templates\testing\test_cases_report.html.py:105
+#: .\models.py:78 .\templates\testing\test_cases_report.html.py:105
 #: .\templates\testing\testcase_form.html.py:144
 msgid "Date"
 msgstr "Fecha"
 
-#: .\models.py:83
+#: .\models.py:84
 msgid "Step number"
 msgstr "Numero de Paso"
 
-#: .\models.py:84
+#: .\models.py:85
 msgid "Step action"
 msgstr "Accion"
 
-#: .\models.py:85 .\templates\testing\test_cases_report.html.py:69
+#: .\models.py:86 .\templates\testing\test_cases_report.html.py:69
 msgid "Expected Result"
 msgstr "Resultado Esperado"
 
-#: .\models.py:90
+#: .\models.py:91
 msgid "Name"
 msgstr "Nombre"
 
-#: .\models.py:91
+#: .\models.py:92
 msgid "Start Date"
 msgstr "Fecha de Inicio"
 
-#: .\models.py:92
+#: .\models.py:93
 msgid "End Date"
 msgstr "Fecha de Fin"
 
-#: .\models.py:103
+#: .\models.py:110
 msgid "Blocked"
-msgstr ""
+msgstr "Bloqueado"
 
-#: .\models.py:104
+#: .\models.py:111
 msgid "Fail"
 msgstr "Falla"
 
-#: .\models.py:105
+#: .\models.py:112
 msgid "Inconclusive"
 msgstr "Sin resultados"
 
-#: .\models.py:106
+#: .\models.py:113
 msgid "Pass"
 msgstr "Pasa"
 
-#: .\models.py:109
+#: .\models.py:116
 msgid "Test Plan"
 msgstr "Plan de Pruebas"
 
-#: .\models.py:110 .\templates\testing\testcase_form.html.py:41
+#: .\models.py:117 .\templates\testing\testcase_form.html.py:41
 msgid "Test Case"
 msgstr "Caso de Prueba"
 
-#: .\models.py:112
+#: .\models.py:118
+msgid "QA Resource"
+msgstr "Recurso de Calidad"
+
+#: .\models.py:120
 msgid "Result"
 msgstr "Resultado"
 
-#: .\models.py:113
+#: .\models.py:121
 msgid "Observations"
 msgstr "Observaciones"
 
-#: .\tables.py:10 .\tables.py:23
+#: .\tables.py:13 .\tables.py:26 .\tables.py:40
 #: .\templates\testing\test_cases_report.html.py:62
 msgid "Actions"
 msgstr "Acciones"
 
-#: .\views.py:84
+#: .\tables.py:37
+msgid "Previous Results"
+msgstr "Resultados Previos"
+
+#: .\views.py:85
 msgid "Test Case created"
 msgstr "Caso de Prueba creado"
 
-#: .\views.py:147
+#: .\views.py:148
 msgid "Test Case updated"
 msgstr "Caso de Prueba actualizado"
 
-#: .\views.py:164
+#: .\views.py:165
 #, python-format
 msgid "Error while creating the PDF file: %s"
 msgstr "Error creando el archivo PDF: %s"
@@ -175,6 +183,18 @@ msgstr "Modificar"
 #: .\templates\testing\__test_plan_actions.html.py:8
 msgid "Execute test cases"
 msgstr "Ejecutar casos de prueba"
+
+#: .\templates\testing\__test_plan_execution_actions.html.py:4
+msgid "Execute Test Case"
+msgstr "Ejecutar Caso de prueba"
+
+#: .\templates\testing\__test_plan_execution_previous_results.html.py:18
+msgid "Executions"
+msgstr "Ejecuciones"
+
+#: .\templates\testing\__test_plan_execution_previous_results.html.py:24
+msgid "There are not executions yet for this plan"
+msgstr "No existen ejecuciones para este plan por el momento"
 
 #: .\templates\testing\test_cases_report.html.py:5
 msgid "Test Cases Report"
@@ -227,6 +247,10 @@ msgstr "Tipo de Reporte"
 msgid "Test Case Type"
 msgstr "Tipo de Caso de Prueba"
 
+#: .\templates\testing\test_plan_execution.html.py:4
+msgid "Test Plan Execution"
+msgstr "Ejecucion de Plan de Pruebas"
+
 #: .\templates\testing\testcase_form.html.py:15
 #: .\templates\testing\testcase_form.html.py:21
 #: .\templates\testing\testcase_form.html.py:27
@@ -260,3 +284,7 @@ msgstr "Plan de Pruebas"
 #: .\templates\testing\testplan_list.html.py:4
 msgid "Testing Plans"
 msgstr "Planes de Pruebas"
+
+#: .\templates\testing\testplanexecution_form.html.py:4
+msgid "Test Case Execution"
+msgstr "Ejecucion de Caso de Prueba"

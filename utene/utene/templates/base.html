@@ -87,6 +87,7 @@
 		{% endblock %}
 		<div class="container">
 			<h1>{% block title %}{% endblock %}</h1>
+			<h2>{% block subtitle %}{% endblock %}</h2>
 			{% if messages %}
             {% for message in messages %}
             <div class="alert alert-{{ message.tags }}">

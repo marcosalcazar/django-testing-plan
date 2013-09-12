@@ -5,7 +5,7 @@
 	</li>
 	{% if record.active %}
 	<li>
-		<a href="{% url 'testing:testingplanexecution' %}">{% trans 'Execute test cases' %}</a>
+		<a href="{% url 'testing:testingplanexecution' record.pk %}">{% trans 'Execute test cases' %}</a>
 	</li>
 </ul>
 {% endif %}

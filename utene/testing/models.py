@@ -4,6 +4,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.core.urlresolvers import reverse_lazy
 from requirements.models import Requirement
 import datetime
+from django.conf.global_settings import AUTH_USER_MODEL
 
 
 class TestCase(models.Model):
@@ -91,6 +92,12 @@ class TestPlan(models.Model):
     start_date = models.DateField(_('Start Date'))
     end_date = models.DateField(_('End Date'))
     
+    class Meta:
+        ordering = ('-start_date', )
+    
+    def __unicode__(self):
+        return u"%s - %s - %s" % (self.name, self.start_date, self.end_date)
+    
     @property
     def active(self):
         today = datetime.date.today()
@@ -98,7 +105,7 @@ class TestPlan(models.Model):
 
 
 class TestPlanExecution(models.Model):
-    
+
     TEST_CASE_EXECUTION_RESULT = (
         ('B', _('Blocked')),
         ('F', _('Fail')),
@@ -108,6 +115,7 @@ class TestPlanExecution(models.Model):
 
     test_plan = models.ForeignKey(TestPlan, verbose_name=_('Test Plan'))
     test_case = models.ForeignKey(TestCase, verbose_name=_('Test Case'))
+    qa_resource = models.ForeignKey(AUTH_USER_MODEL, verbose_name=_('QA Resource'))
     date = models.DateTimeField(auto_now_add=True)
     result = models.CharField(max_length=1, choices=TEST_CASE_EXECUTION_RESULT, verbose_name=_('Result'))
     observations = models.TextField(null=True, blank=True, verbose_name=_('Observations'))

@@ -1,0 +1,26 @@
+{% load i18n %}
+{% load testing_tags %}
+
+{% testcase_previous_results plan.pk record.pk as previous %}
+{% if previous %}
+<table class='table table-bordered'>
+	<tbody>
+		{% regroup previous by get_result_display as previous_list %}
+		{% for p in previous_list %}
+		<tr>
+			<td>{{ p.grouper }}</td>
+			<td>{{ p.list|length }}</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+	<tfoot>
+		<tr>
+			<th>{% trans "Executions" %}</th>
+			<th>{{ previous|length }}</th>
+		</tr>
+	</tfoot>
+</table>
+{% else %}
+{% trans "There are not executions yet for this plan" %}
+{% endif %}
+
