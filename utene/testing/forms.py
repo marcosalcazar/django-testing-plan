@@ -2,6 +2,7 @@ from django import forms
 from django.forms.models import inlineformset_factory
 from testing.models import TestCasePreCondition, TestCase, TestCasePostCondition, \
     TestCaseStep, TestCaseRevision, TestPlanExecution
+from utene.forms import ReadOnlyField
 
 
 TestCasePreConditionFormSet = \
@@ -35,7 +36,16 @@ class TestCaseForm(forms.ModelForm):
 
 
 class TestPlanExecutionForm(forms.ModelForm):
+    test_plan = ReadOnlyField(
+        widget=forms.TextInput(attrs={'readonly':'readonly'})
+    )
+    test_case = ReadOnlyField(
+        widget=forms.TextInput(attrs={'readonly':'readonly'})
+    )
+    qa_resource = ReadOnlyField(
+        widget=forms.TextInput(attrs={'readonly':'readonly'})
+    )
     
     class Meta:
         model = TestPlanExecution
-        exclude = ('test', )
+        fields = ('test_plan', 'test_case', 'qa_resource', 'result', 'observations', )

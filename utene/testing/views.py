@@ -244,15 +244,15 @@ class TestPlanExecutionView(SingleTableView):
 
 class TestPlanExecutionCreateView(CreateView):
     model = TestPlanExecution
-    form = TestPlanExecutionForm
+    form_class = TestPlanExecutionForm
     
     def get_initial(self):
         initial = CreateView.get_initial(self)
-        initial['test_plan'] = TestPlan.objects.get(pk=self.kwargs['plan_pk'])
-        initial['test_case'] = TestCase.objects.get(pk=self.kwargs['testcase_pk'])
+        initial['test_plan'] = TestPlan.objects.get(pk=self.kwargs.get('plan_pk'))
+        initial['test_case'] = TestCase.objects.get(pk=self.kwargs.get('testcase_pk'))
         initial['qa_resource'] = self.request.user
         return initial
-    
+
     def get_success_url(self):
         return reverse_lazy("testing:testingplanexecution", kwargs={
             'plan_pk': self.kwargs.get("plan_pk")
