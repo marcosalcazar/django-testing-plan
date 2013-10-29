@@ -10,9 +10,8 @@
 			{% if full %}
 			<th>{% trans "Corrective Action"%}</th>
 			<th>{% trans "User"%}</th>
-			{% else %}
-			<th>&nbsp;</th>
 			{% endif %}
+			<th>&nbsp;</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -23,11 +22,15 @@
 			{% if full %}
 			<td>{{ s.corrective_action }}</td>
 			<td>{% user_display_name s.user %}</td>
-			{% else %}
-			<td>
-				<a data-toggle="modal" href="{% url 'testing:testcasestate_detail' s.pk %}" data-target="#myModal_{{ s.pk }}" class="btn">+</a>
-			</td>
 			{% endif %}
+			<td>
+				<div class="btn-group">
+					{% if not full %}
+					<a data-toggle="modal" href="{% url 'testing:testcasestate_detail' s.pk %}" data-target="#myModal_{{ s.pk }}" class="btn">+</a>
+					{% endif %}
+					<a href="{% url 'testing:testcasestate_delete' s.pk %}" class="btn">x</a>
+				</div>
+			</td>
 		</tr>
 		{% endfor %}
 	</tbody>

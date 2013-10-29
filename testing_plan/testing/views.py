@@ -265,3 +265,8 @@ class TestCaseStateCreateView(CreateView):
 
 class TestCaseStateDetailView(DetailView):
     model = TestCaseState
+
+
+class TestCaseStateDeleteView(DeleteView):
+    model = TestCaseState
+    success_url = reverse_lazy("testing:testcases")

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-29 09:55-0300\n"
+"POT-Creation-Date: 2013-10-29 12:28-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Marcos Gabriel Alcazar <marcos.alcazar@gmail.com>\n"
 "Language-Team: ES <marcos.alcazar@gmail.com>\n"
@@ -194,7 +194,7 @@ msgstr "Revisiones"
 msgid "Estimated execution type"
 msgstr "Tiempo estimado de ejecucion"
 
-#: .\templates\testing\__testcase_states.html.py:45
+#: .\templates\testing\__testcase_states.html.py:48
 #: .\templates\testing\testcasestate_form.html.py:4
 msgid "Test Case Status"
 msgstr "Estado de Caso de Prueba"
@@ -218,6 +218,10 @@ msgstr "Tipo de Caso de Prueba"
 #: .\templates\testing\testcase_detail.html.py:8
 msgid "Add Test Case State"
 msgstr "Agregar Estado de Caso de Prueba"
+
+#: .\templates\testing\testcase_detail.html.py:9
+msgid "Modify"
+msgstr ""
 
 #: .\templates\testing\testcase_form.html.py:15
 #: .\templates\testing\testcase_form.html.py:21
@@ -248,3 +252,15 @@ msgstr "Pasos"
 #: .\templates\testing\testcase_list.html.py:4
 msgid "Test Cases"
 msgstr "Casos de Prueba"
+
+#: .\templates\testing\testcasestate_confirm_delete.html.py:4
+msgid "Delete"
+msgstr "Eliminar"
+
+#: .\templates\testing\testcasestate_confirm_delete.html.py:4
+msgid "Test Case State"
+msgstr "Estado de Caso de Prueba"
+
+#: .\templates\testing\testcasestate_confirm_delete.html.py:8
+msgid "Do you really want to delete it?"
+msgstr "Realmente desea eliminarlo?"

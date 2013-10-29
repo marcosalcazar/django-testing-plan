@@ -1,0 +1,14 @@
+{% extends '__form.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Delete" %} {% trans "Test Case State" %}{% endblock %}
+
+{% block content %}
+<div class="alert alert-error">
+	{% trans "Do you really want to delete it?" %}
+</div>
+{% include "testing/testcasestate_detail.html" %}
+{{ block.super }}
+{% endblock %}
+
+

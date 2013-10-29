@@ -2,7 +2,8 @@ from django.conf.urls import patterns, url
 from django.contrib.auth.decorators import login_required
 from testing.views import TestCaseListView, TestCaseCreateView, \
     TestCaseUpdateView, TestCasesReportView, TestCaseDeleteView,\
-    TestCaseDetailView, TestCaseStateDetailView, TestCaseStateCreateView
+    TestCaseDetailView, TestCaseStateDetailView, TestCaseStateCreateView,\
+    TestCaseStateDeleteView
 
 
 urlpatterns = patterns('testing.views',
@@ -17,5 +18,6 @@ urlpatterns = patterns('testing.views',
     
     url(r'test_case_state/create/(?P<testcase_pk>\d+)/$', login_required(TestCaseStateCreateView.as_view()), name='testcasestate_create'),
     url(r'test_case_state/view/(?P<pk>\d+)/$', login_required(TestCaseStateDetailView.as_view()), name='testcasestate_detail'),
+    url(r'test_case_state/delete/(?P<pk>\d+)/$', login_required(TestCaseStateDeleteView.as_view()), name='testcasestate_delete'),
 
 )
