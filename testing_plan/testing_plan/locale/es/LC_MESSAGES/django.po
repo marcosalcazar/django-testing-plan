@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-11 14:47-0300\n"
+"POT-Creation-Date: 2013-10-29 10:15-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,11 +45,15 @@ msgstr "Actualizar"
 msgid "New"
 msgstr "Crear"
 
-#: .\templates\__list.html.py:13 .\templates\__record_actions.html.py:2
+#: .\templates\__list.html.py:13 .\templates\__record_actions.html.py:3
 msgid "Modify"
 msgstr "Modificar"
 
-#: .\templates\__record_actions.html.py:3
+#: .\templates\__record_actions.html.py:2
+msgid "View"
+msgstr "Ver"
+
+#: .\templates\__record_actions.html.py:4
 msgid "Delete"
 msgstr "Eliminar"
 
