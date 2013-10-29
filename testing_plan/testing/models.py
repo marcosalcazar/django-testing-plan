@@ -39,6 +39,10 @@ class TestCase(models.Model):
     def __unicode__(self):
         return "%s - %s" % (self.id, self.title)
     
+    def get_absolute_url_detail(self):
+        return reverse_lazy('testing:testcase_view', 
+                            kwargs={'pk': self.pk})
+    
     def get_absolute_url(self):
         return reverse_lazy('testing:testcase_update', 
                             kwargs={'pk': self.pk})
@@ -84,11 +88,17 @@ class TestCaseStep(models.Model):
     step_expected_result = models.TextField(_('Expected Result'))
 
 
-# class TestCaseCorrectiveAction(models.Model):
-# 
-#     test_case = models.ForeignKey(TestCase, related_name='corrective_actions')
-#     description = models.CharField(verbose_name=_('Description'), 
-#                                    max_length=255)
-#     
-#     def __unicode__(self):
-#         return self.description
+class TestCaseState(models.Model):
+    
+    STATES = (
+        ("1", _("Crash/Data Loss")),
+        ("2", _("Major Problem")),
+        ("3", _("Minor Problem")),
+        ("4", _("Cosmetic")),
+    )
+    
+    test_case = models.ForeignKey(TestCase, related_name='states')
+    state = models.CharField(_('State'), max_length=1, choices=STATES)
+    corrective_action = models.TextField(_('Corrective Action'))
+    user = models.ForeignKey(User, verbose_name=_('User'))
+    date = models.DateTimeField(_('Date'), auto_now_add=True)

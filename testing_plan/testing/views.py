@@ -10,11 +10,12 @@ from django_tables2.views import SingleTableView
 from ho import pisa
 from testing.forms import TestCasePreConditionFormSet, \
     TestCasePostConditionFormSet, TestCaseStepFormSet, TestCaseRevisionForm, \
-    TestCaseForm
-from testing.models import TestCase
+    TestCaseForm, TestCaseStateForm
+from testing.models import TestCase, TestCaseState
 from testing.tables import TestCaseTable
 import StringIO
 import cgi
+from django.views.generic.detail import DetailView
 #from relatorio.templates.opendocument import Template
 #from django.conf import settings
 #import os
@@ -24,6 +25,10 @@ import cgi
 class TestCaseListView(SingleTableView):
     model = TestCase
     table_class = TestCaseTable
+
+
+class TestCaseDetailView(DetailView):
+    model = TestCase
 
 
 class TestCaseCreateView(CreateView):
@@ -231,3 +236,32 @@ class TestCasesReportView(TemplateView):
 #             mimetype='application/pdf')
 #         response['Content-Disposition'] = 'attachment; filename="TestCasesReport.pdf"'
 #         return response
+
+
+class TestCaseStateCreateView(CreateView):
+    model = TestCaseState
+    form_class = TestCaseStateForm
+    
+    def get_success_url(self):
+        return reverse_lazy("testing:testcase_view", kwargs={'pk': self.kwargs['testcase_pk']})
+    
+    def post(self, request, *args, **kwargs):
+        self.object = self.model()
+        form_class = self.get_form_class()
+        form = self.get_form(form_class)
+        
+        if form.is_valid():
+
+            self.object = form.save(commit=False)
+            self.object.user = self.request.user
+            self.object.test_case = \
+                TestCase.objects.get(pk=self.kwargs['testcase_pk'])
+            self.object.save()
+            messages.success(self.request, _('Test Case State created'))
+            return HttpResponseRedirect(self.get_success_url())
+        else:
+            return self.form_invalid(form)
+
+
+class TestCaseStateDetailView(DetailView):
+    model = TestCaseState

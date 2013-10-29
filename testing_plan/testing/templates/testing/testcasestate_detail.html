@@ -1,0 +1,15 @@
+{% load i18n %}
+{% load user_tags %}
+
+<h3>{% trans "State" %}</h3>
+<td>{{ object.get_state_display }}</td>
+
+<h3>{% trans "Date" %}</h3>
+<td>{{ object.date }}</td>
+
+<h3>{% trans "Corrective Action"%}</h3>
+<td>{{ object.corrective_action }}</td>
+
+<h3>{% trans "User"%}</h3>
+<td>{% user_display_name object.user %}</td>
+

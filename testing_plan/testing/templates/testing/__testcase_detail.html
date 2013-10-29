@@ -1,0 +1,103 @@
+{% load i18n %}
+{% load user_tags %}
+<table class='{{ table_class }}'>
+	<tbody>
+		<tr>
+			<td colspan="2"><h2>[{{ tc.get_test_case_type_display }}] {{ tc }}</h2></td>
+		</tr>
+		<tr>
+			<td width="20%">{% trans 'Author' %}</td>
+			<td width="80%">{% user_display_name tc.author %}</td>
+		</tr>
+		<tr>
+			<td>{% trans 'Objective' %}</td>
+			<td>{{ tc.objective }}</td>
+		</tr>
+		<tr>
+			<td>{% trans 'Requirement' %}</td>
+			<td>{{ tc.requirement }}</td>
+		</tr>
+		<tr>
+			<td>{% trans 'Pre-Conditions' %}</td>
+			<td>
+				<ul>
+					{% for p in tc.preconditions.all %}
+					<li>{{ p }}</li>
+					{% endfor %}
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>{% trans 'Actions' %}</td>
+			<td>
+				<table class="{{ subtable_class }}">
+					<thead>
+						<tr>
+							<th width="10%">{% trans 'Step Number' %}</th>
+							<th>{% trans 'Action' %}</th>
+							<th>{% trans 'Expected Result' %}</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for s in tc.steps.all %}
+						<tr>
+							<td>{{ s.step_number }}</td>
+							<td>{{ s.step_action }}</td>
+							<td>{{ s.step_expected_result }}</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>{% trans 'Execution type' %}</td>
+			<td>{{ tc.get_execution_type_display }}</td>
+		</tr>
+		<tr>
+			<td>{% trans 'Post-Conditions' %}</td>
+			<td>
+				<ul>
+					{% for p in tc.postconditions.all %}
+					<li>{{ p }}</li>
+					{% endfor %}
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>{% trans 'Revisions' %}</td>
+			<td>
+				<table class="{{ subtable_class }}">
+					<thead>
+						<tr>
+							<th width="20%">{% trans 'User' %}</th>
+							<th>{% trans 'Date' %}</th>
+							<th>{% trans 'Description' %}</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for revision in tc.revisions.all %}
+						<tr>
+							<td>{% user_display_name revision.user %}</td>
+							<td>{{ revision.date }}</td>
+							<td>{{ revision.description }}</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>{% trans 'Estimated execution type' %}</td>
+			<td>{{ tc.estimated_execution_time }}</td>
+		</tr>
+		<tr>
+			<td>{% trans 'States' %}</td>
+			<td>
+				{% with tc as record %}
+					{% include 'testing/__testcase_states.html' with full=True %}
+				{% endwith %}
+			</td>
+		</tr>
+	</tbody>
+</table>

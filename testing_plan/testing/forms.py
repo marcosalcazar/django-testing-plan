@@ -1,7 +1,7 @@
 from django import forms
 from django.forms.models import inlineformset_factory
 from testing.models import TestCasePreCondition, TestCase, TestCasePostCondition, \
-    TestCaseStep, TestCaseRevision
+    TestCaseStep, TestCaseRevision, TestCaseState
 
 
 TestCasePreConditionFormSet = \
@@ -32,3 +32,10 @@ class TestCaseForm(forms.ModelForm):
     class Meta:
         model = TestCase
         exclude = ('author', )
+
+
+class TestCaseStateForm(forms.ModelForm):
+    
+    class Meta:
+        model = TestCaseState
+        exclude = ('test_case', 'user', )
