@@ -7,11 +7,13 @@
 		<tr>
 			<th>{% trans "State" %}</th>
 			<th>{% trans "Date" %}</th>
-			{% if full %}
-			<th>{% trans "Corrective Action"%}</th>
-			<th>{% trans "User"%}</th>
-			{% endif %}
+			<th>{% trans "Corrective Action" %}</th>
+			<th>{% trans "User" %}</th>
+			<th>{% trans "Completed" %}</th>
+			<th>{% trans "Verified" %}</th>
+			{% if actions %}
 			<th>&nbsp;</th>
+			{% endif %}
 		</tr>
 	</thead>
 	<tbody>
@@ -19,44 +21,32 @@
 		<tr>
 			<td>{{ s.get_state_display }}</td>
 			<td>{{ s.date }}</td>
-			{% if full %}
 			<td>{{ s.corrective_action }}</td>
 			<td>{% user_display_name s.user %}</td>
-			{% endif %}
+			<td>
+				{% if s.completed %}
+					{% trans "Yes, by" %} {{ s.completed_by }}
+				{% else %}
+					{% trans "No" %}
+				{% endif %}
+			</td>
+			<td>
+				{% if s.verified %}
+					{% trans "Yes, by" %} {{ s.verified_by }}
+				{% else %}
+					{% trans "No" %}
+				{% endif %}
+			</td>
+			{% if actions %}
 			<td>
 				<div class="btn-group">
-					{% if not full %}
-					<a data-toggle="modal" href="{% url 'testing:testcasestate_detail' s.pk %}" data-target="#myModal_{{ s.pk }}" class="btn">+</a>
-					{% endif %}
+					<a href="{% url 'testing:testcasestate_update' s.pk %}" class="btn">+</a>
 					<a href="{% url 'testing:testcasestate_delete' s.pk %}" class="btn">x</a>
 				</div>
 			</td>
+			{% endif %}
 		</tr>
 		{% endfor %}
 	</tbody>
 </table>
-
-{% if not full %}
-{% for s in states %}
-<div class="modal fade" id="myModal_{{ s.pk }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-					&times;
-				</button>
-				<h4 class="modal-title">{% trans "Test Case Status" %}</h4>
-			</div>
-			<div class="modal-body"></div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">
-					Close
-				</button>
-			</div>
-		</div><!-- /.modal-content -->
-	</div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-{% endfor %}
-{% endif %}
-
 {% endwith %}

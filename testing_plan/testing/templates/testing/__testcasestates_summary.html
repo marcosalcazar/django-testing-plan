@@ -1,0 +1,24 @@
+{% load i18n %}
+{% load testing_tags %}
+
+{% testcasestates_summary as results %}
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>{% trans "State" %}</th>
+			<th>{% trans "Total" %}</th>
+			<th>{% trans "Completed" %}</th>
+			<th>{% trans "Verified" %}</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for result in results %}
+		<tr>
+			<td>{{ result.state }}</td>
+			<td>{{ result.total }}</td>
+			<td>{{ result.completed }}</td>
+			<td>{{ result.verified }}</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>

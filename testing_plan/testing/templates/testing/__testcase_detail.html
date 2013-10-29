@@ -95,7 +95,7 @@
 			<td>{% trans 'States' %}</td>
 			<td>
 				{% with tc as record %}
-					{% include 'testing/__testcase_states.html' with full=True %}
+					{% include 'testing/__testcase_states.html' with actions=actions %}
 				{% endwith %}
 			</td>
 		</tr>

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-29 12:28-0300\n"
+"POT-Creation-Date: 2013-10-29 14:00-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Marcos Gabriel Alcazar <marcos.alcazar@gmail.com>\n"
 "Language-Team: ES <marcos.alcazar@gmail.com>\n"
@@ -84,9 +84,9 @@ msgstr "Tiempo Estimado de Ejecucion"
 msgid "Description"
 msgstr "Descripcion"
 
-#: .\models.py:78 .\models.py:103
+#: .\models.py:78 .\models.py:105
 #: .\templates\testing\__testcase_detail.html.py:73
-#: .\templates\testing\__testcase_states.html.py:12
+#: .\templates\testing\__testcase_states.html.py:11
 #: .\templates\testing\testcase_form.html.py:143
 #: .\templates\testing\testcasestate_detail.html.py:13
 msgid "User"
@@ -113,30 +113,53 @@ msgid "Expected Result"
 msgstr "Resultado Esperado"
 
 #: .\models.py:94
+msgid "No Errors"
+msgstr "Sin Errores"
+
+#: .\models.py:95
 msgid "Crash/Data Loss"
 msgstr "Falla General/Perdida de Datos"
 
-#: .\models.py:95
+#: .\models.py:96
 msgid "Major Problem"
 msgstr "Problema Grave"
 
-#: .\models.py:96
+#: .\models.py:97
 msgid "Minor Problem"
 msgstr "Problema Menor"
 
-#: .\models.py:97
+#: .\models.py:98
 msgid "Cosmetic"
 msgstr "Cosmetico"
 
-#: .\models.py:101 .\templates\testing\__testcase_states.html.py:8
+#: .\models.py:102 .\templates\testing\__testcase_states.html.py:8
+#: .\templates\testing\__testcasestates_summary.html.py:8
 #: .\templates\testing\testcasestate_detail.html.py:4
 msgid "State"
 msgstr "Estado"
 
-#: .\models.py:102 .\templates\testing\__testcase_states.html.py:11
+#: .\models.py:103 .\templates\testing\__testcase_states.html.py:10
 #: .\templates\testing\testcasestate_detail.html.py:10
 msgid "Corrective Action"
 msgstr "Accion Correctiva"
+
+#: .\models.py:107 .\templates\testing\__testcase_states.html.py:12
+#: .\templates\testing\__testcasestates_summary.html.py:10
+msgid "Completed"
+msgstr "Completado"
+
+#: .\models.py:108
+msgid "Completed By"
+msgstr "Completado Por"
+
+#: .\models.py:110 .\templates\testing\__testcase_states.html.py:13
+#: .\templates\testing\__testcasestates_summary.html.py:11
+msgid "Verified"
+msgstr "Verificado"
+
+#: .\models.py:111
+msgid "Verified By"
+msgstr "Verificado Por"
 
 #: .\tables.py:10 .\templates\testing\__testcase_detail.html.py:95
 msgid "States"
@@ -194,10 +217,19 @@ msgstr "Revisiones"
 msgid "Estimated execution type"
 msgstr "Tiempo estimado de ejecucion"
 
-#: .\templates\testing\__testcase_states.html.py:48
-#: .\templates\testing\testcasestate_form.html.py:4
-msgid "Test Case Status"
-msgstr "Estado de Caso de Prueba"
+#: .\templates\testing\__testcase_states.html.py:28
+#: .\templates\testing\__testcase_states.html.py:35
+msgid "Yes, by"
+msgstr "Si, por"
+
+#: .\templates\testing\__testcase_states.html.py:30
+#: .\templates\testing\__testcase_states.html.py:37
+msgid "No"
+msgstr "No"
+
+#: .\templates\testing\__testcasestates_summary.html.py:9
+msgid "Total"
+msgstr "Total"
 
 #: .\templates\testing\test_cases_report.html.py:4
 msgid "Test Cases Report"
@@ -221,7 +253,7 @@ msgstr "Agregar Estado de Caso de Prueba"
 
 #: .\templates\testing\testcase_detail.html.py:9
 msgid "Modify"
-msgstr ""
+msgstr "Modificar"
 
 #: .\templates\testing\testcase_form.html.py:15
 #: .\templates\testing\testcase_form.html.py:21
@@ -264,3 +296,7 @@ msgstr "Estado de Caso de Prueba"
 #: .\templates\testing\testcasestate_confirm_delete.html.py:8
 msgid "Do you really want to delete it?"
 msgstr "Realmente desea eliminarlo?"
+
+#: .\templates\testing\testcasestate_form.html.py:4
+msgid "Test Case Status"
+msgstr "Estado de Caso de Prueba"

@@ -3,7 +3,7 @@
 
 {% block content %}
 {% with table_class="table table-bordered table-hover" %}
-{% include 'testing/__testcase_detail.html' with tc=object table_class=table_class subtable_class=table_class %}
+{% include 'testing/__testcase_detail.html' with tc=object table_class=table_class subtable_class=table_class actions=True %}
 {% endwith %}
 <a href="{% url 'testing:testcasestate_create' testcase_pk=object.pk %}" class="btn btn-default">{% trans "Add Test Case State" %}</a>
 <a href="{% url 'testing:testcase_update' pk=object.pk %}" class="btn btn-default">{% trans "Modify" %}</a>
