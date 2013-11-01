@@ -167,7 +167,7 @@ class TestCaseDeleteView(DeleteView):
 def _generate_pdf(html):
     #Function for generating the PDF file and return it using HttpResponse
     result = StringIO.StringIO()
-    pdf = pisa.pisaDocument(StringIO.StringIO(html.encode("UTF-8")), result)
+    pdf = pisa.pisaDocument(StringIO.StringIO(html.encode("UTF-8")), result, encoding='UTF-8')
     if not pdf.err:
         return HttpResponse(result.getvalue(), mimetype='application/pdf')
     return HttpResponse(_('Error while creating the PDF file: %s' % cgi.escape(html)))
