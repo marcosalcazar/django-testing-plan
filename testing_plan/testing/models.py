@@ -87,6 +87,9 @@ class TestCaseStep(models.Model):
     step_action = models.TextField(_('Step action'))
     step_expected_result = models.TextField(_('Expected Result'))
 
+    class Meta:
+        ordering = ['step_number', ]
+
 
 class TestCaseState(models.Model):
     
