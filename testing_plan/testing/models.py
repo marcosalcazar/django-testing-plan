@@ -103,12 +103,14 @@ class TestCaseState(models.Model):
     
     test_case = models.ForeignKey(TestCase, related_name='states')
     state = models.CharField(_('State'), max_length=1, choices=STATES)
-    corrective_action = models.TextField(_('Corrective Action'))
+    description = models.TextField(_('Description'))
+
     date = models.DateTimeField(_('Date'), auto_now_add=True)
     user = models.ForeignKey(User, verbose_name=_('User'))
 
     completed = models.BooleanField(default=False, verbose_name=_('Completed'))
     completed_by = models.ForeignKey(User, verbose_name=_('Completed By'), related_name='states_completed', null=True, blank=True)
+    corrective_action = models.TextField(_('Corrective Action'), null=True, blank=True)
 
     verified = models.BooleanField(default=False, verbose_name=_('Verified'))
     verified_by = models.ForeignKey(User, verbose_name=_('Verified By'), related_name='states_verified', null=True, blank=True)
