@@ -191,6 +191,7 @@ class TestCasesReportView(TemplateView):
         report_type = request.POST.get('report_type')
         test_case_type = request.POST.get('test_case_type', None)
         execution_type = request.POST.get('execution_type', None)
+        only_with_states = request.POST.get('only_with_states', None)
         
         #Clean data
         if test_case_type == u"": test_case_type = None
@@ -205,6 +206,8 @@ class TestCasesReportView(TemplateView):
             q = q.filter(test_case_type=test_case_type)
         if execution_type:
             q = q.filter(execution_type=execution_type)
+        if only_with_states:
+            q = q.filter(states__isnull=False)
         
         #Finally get the objects
         test_cases = q.all()
