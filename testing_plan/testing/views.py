@@ -271,7 +271,7 @@ class TestCaseStateUpdateView(UpdateView):
     model = TestCaseState
     
     def get_success_url(self):
-        return reverse_lazy("testing:testcase_view", kwargs={'pk': self.object.pk})
+        return reverse_lazy("testing:testcase_view", kwargs={'pk': self.object.test_case.pk})
 
 
 class TestCaseStateDeleteView(DeleteView):
