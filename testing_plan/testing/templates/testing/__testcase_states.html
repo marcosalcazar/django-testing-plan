@@ -2,14 +2,15 @@
 {% load user_tags %}
 
 {% with record.states.all as states %}
-<table class="table table-bordered">
+<table class='{{ table_class }}'>
 	<thead>
 		<tr>
 			<th>{% trans "State" %}</th>
 			<th>{% trans "Date" %}</th>
-			<th>{% trans "Corrective Action" %}</th>
+			<th>{% trans "Description" %}</th>
 			<th>{% trans "User" %}</th>
 			<th>{% trans "Completed" %}</th>
+			<th>{% trans "Corrective Action" %}</th>
 			<th>{% trans "Verified" %}</th>
 			{% if actions %}
 			<th>&nbsp;</th>
@@ -21,7 +22,7 @@
 		<tr>
 			<td>{{ s.get_state_display }}</td>
 			<td>{{ s.date }}</td>
-			<td>{{ s.corrective_action }}</td>
+			<td>{{ s.description }}</td>
 			<td>{% user_display_name s.user %}</td>
 			<td>
 				{% if s.completed %}
@@ -30,6 +31,7 @@
 					{% trans "No" %}
 				{% endif %}
 			</td>
+			<td>{{ s.corrective_action|default_if_none:"" }}</td>
 			<td>
 				{% if s.verified %}
 					{% trans "Yes, by" %} {{ s.verified_by }}
