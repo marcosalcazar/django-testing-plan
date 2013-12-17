@@ -192,6 +192,7 @@ class TestCasesReportView(TemplateView):
         test_case_type = request.POST.get('test_case_type', None)
         execution_type = request.POST.get('execution_type', None)
         only_with_states = request.POST.get('only_with_states', None)
+        show_execution_results = request.POST.get('show_execution_results', None)
         
         #Clean data
         if test_case_type == u"": test_case_type = None
@@ -211,14 +212,16 @@ class TestCasesReportView(TemplateView):
         
         #Finally get the objects
         test_cases = q.all()
-
+        
         if report_type == 'HTML':
             context = self.get_context_data(**kwargs)
+            context['show_execution_results'] = show_execution_results
             context['test_cases'] = test_cases
             return self.render_to_response(context) 
         elif report_type == 'PDF':
             data = dict(
                 test_cases = test_cases,
+                show_execution_results = show_execution_results,
                 pagesize = 'A4',
             )
             html = render_to_string(

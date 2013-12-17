@@ -91,6 +91,7 @@
 			<td>{% trans 'Estimated execution type' %}</td>
 			<td>{{ tc.estimated_execution_time }}</td>
 		</tr>
+		{% if show_execution_results %}
 		<tr>
 			<td>{% trans 'States' %}</td>
 			<td>
@@ -99,5 +100,6 @@
 				{% endwith %}
 			</td>
 		</tr>
+		{% endif %}
 	</tbody>
 </table>
